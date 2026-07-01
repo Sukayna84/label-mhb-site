@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Label MHB — My Human Business</title>
+<meta name="description" content="Label MHB : la certification qualité humaine pour TPE/PME. Diagnostic, accompagnement, labellisation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2A30;
+    --ink-dim: rgba(42,42,48,0.64);
+    --ink-faint: rgba(42,42,48,0.42);
+    --paper:#FFFFFF;
+    --paper-tint:#F6F4FB;
+    --paper-tint-2:#F0EEF9;
+    --grad-blue:#6B86C9;
+    --grad-teal:#5FB6B6;
+    --grad-violet:#8C7FC4;
+    --grad: linear-gradient(120deg, var(--grad-blue) 0%, var(--grad-teal) 50%, var(--grad-violet) 100%);
+    --line: rgba(42,42,48,0.10);
+    --line-soft: rgba(42,42,48,0.06);
+    --display: 'Fraunces', serif;
+    --body: 'Work Sans', sans-serif;
+    --mono: 'Space Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  :focus-visible{
+    outline: 2px solid var(--grad-violet);
+    outline-offset: 3px;
+  }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grad-text{
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-style: italic;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px;
+    max-width: 1080px; margin:0 auto;
+  }
+  .logo-group{ display:flex; align-items:center; gap:12px; }
+  .logo-group img{ width: 34px; height: 34px; border-radius: 8px; }
+  .logo-word{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+  }
+  nav ul{ list-style:none; display:flex; gap: 28px; }
+  nav a{
+    font-size: 0.88rem;
+    text-decoration:none;
+    color: var(--ink);
+    opacity: 0.72;
+    transition: opacity .2s;
+  }
+  nav a:hover{ opacity:1; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding: 88px 0 64px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 18px 0 22px;
+    color: var(--ink);
+  }
+  .hero p.lead{
+    font-size: 1.08rem;
+    color: var(--ink-dim);
+    max-width: 46ch;
+    margin-bottom: 32px;
+  }
+  .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 13px 24px;
+    border-radius: 6px;
+    text-decoration:none;
+    transition: transform .15s ease, box-shadow .2s ease;
+  }
+  .btn-primary{
+    background: var(--grad);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(108,120,196,0.28);
+  }
+  .btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(108,120,196,0.36); }
+  .btn-ghost{
+    position: relative;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid transparent;
+    background-image: linear-gradient(var(--paper), var(--paper)), var(--grad);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+  .btn-ghost:hover{ transform: translateY(-1px); }
+  .btn-keenli{
+    background: #14101F;
+    color: #fff;
+    gap: 10px;
+  }
+  .btn-keenli:hover{ transform: translateY(-1px); background: #1E1830; }
+  .keenli-logo{ height: 18px; width: auto; }
+  .keenli-cta-row{
+    display:flex;
+    justify-content:center;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* gauge */
+  .gauge-wrap{ display:flex; justify-content:center; }
+  .gauge-label{
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    fill: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+  .gauge-readout{
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    fill: var(--ink);
+    font-weight: 700;
+  }
+  #needle{
+    transform-origin: 160px 170px;
+    transform: rotate(-58deg);
+    transition: transform 1.6s cubic-bezier(.2,.9,.25,1);
+  }
+  .gauge-wrap.in-view #needle{ transform: rotate(36deg); }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding: 84px 0; }
+  .tint{ background: var(--paper-tint); }
+  h2{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+    margin: 10px 0 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .section-intro{
+    max-width: 60ch;
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    margin-bottom: 48px;
+  }
+
+  /* ---------- STATS (référentiel, sans détail) ---------- */
+  .stat-row{
+    display:flex;
+    gap: 56px;
+    flex-wrap: wrap;
+    padding: 32px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  .stat{ display:flex; flex-direction:column; gap:4px; }
+  .stat-num{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+  .stat-label{
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .stat-row-time{
+    padding-top: 20px;
+    border-top: none;
+    gap: 40px;
+  }
+  .stat-row-time .stat-num{ font-size: 1.7rem; }
+  .pilier-13{
+    margin-top: 36px;
+    border-left: 3px solid;
+    border-image: var(--grad) 1;
+    padding: 18px 22px;
+    background: var(--paper-tint);
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+    max-width: 64ch;
+  }
+  .pilier-13 strong{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display:block; margin-bottom:6px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- QUI Y GAGNE ---------- */
+  .gagne-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+  .gagne-col h3{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .gagne-list{ list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .gagne-list li{
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .gagne-list li::before{
+    content: '';
+    position:absolute; left:0; top: 7px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--grad);
+  }
+  @media (max-width: 700px){
+    .gagne-grid{ grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ---------- RSE ---------- */
+  .rse-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    margin-top: 12px;
+  }
+  .rse-card{
+    background: var(--paper);
+    padding: 26px 26px;
+  }
+  .rse-card h3{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .rse-card p{
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  @media (max-width: 700px){
+    .rse-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- COMPARATIF ---------- */
+  .compare{
+    margin-top: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .compare table{ width:100%; border-collapse: collapse; }
+  .compare th, .compare td{
+    text-align:left;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .compare thead th{
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 400;
+    background: var(--paper-tint);
+  }
+  .compare thead th.hi{ color: var(--ink); font-weight: 700; }
+  .compare td:first-child{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .compare td{ color: var(--ink-dim); }
+  .compare td.hi{
+    color: var(--ink);
+    font-weight: 600;
+    background: linear-gradient(120deg, rgba(107,134,201,0.07), rgba(95,182,182,0.07) 50%, rgba(140,127,196,0.07));
+  }
+  .compare tr:last-child td{ border-bottom: none; }
+  .compare-note{
+    margin-top: 28px;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 60ch;
+  }
+  @media (max-width: 700px){
+    .compare{ overflow-x: auto; }
+    .compare table{ min-width: 560px; }
+  }
+
+  /* ---------- DEMARCHE ---------- */
+  .demarche-list{ display:flex; flex-direction:column; border-top: 1px solid var(--line); }
+  .demarche-item{
+    display:grid;
+    grid-template-columns: 90px 1fr;
+    gap: 28px;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .demarche-num{
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    padding-top: 4px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .demarche-item h3{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .demarche-item p{ color: var(--ink-dim); max-width: 58ch; }
+
+  /* ---------- SEUILS TABLE ---------- */
+  .seuils{ margin-top: 56px; border: 1px solid var(--line); border-radius: 8px; overflow:hidden; }
+  table{ width:100%; border-collapse: collapse; }
+  th, td{ text-align:left; padding: 14px 18px; font-size: 0.9rem; border-bottom: 1px solid var(--line); }
+  th{
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 400;
+    background: var(--paper-tint);
+  }
+  td.num{ font-family: var(--mono); font-weight: 700; background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  tr:last-child td{ border-bottom: none; }
+
+  /* ---------- PILOTE ---------- */
+  .pilote-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .pilote-card{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 24px rgba(108,120,196,0.06);
+  }
+  .pilote-card h3{ font-family: var(--display); font-size:1.1rem; margin-bottom:14px; color: var(--ink); }
+  .pilote-card ul{ list-style:none; display:flex; flex-direction:column; gap:14px; margin-top: 4px; }
+  .pilote-card li{ font-size: 0.92rem; color: var(--ink-dim); padding-left: 20px; position: relative; }
+  .pilote-card li::before{
+    content: '';
+    position:absolute; left:0; top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--grad);
+  }
+  .pilote-counter{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display:inline-block;
+  }
+
+  /* ---------- CONTACT CARD ---------- */
+  .contact-card{
+    margin-top: 20px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px 30px;
+    background: var(--paper);
+  }
+  .contact-card h3{
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .contact-row{ display:flex; gap: 40px; flex-wrap: wrap; }
+  .contact-item{
+    display:flex; flex-direction:column; gap:4px;
+    text-decoration:none;
+  }
+  .contact-item .contact-label{
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .contact-item .contact-value{
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: color .2s;
+  }
+  .contact-item:hover .contact-value{ color: var(--grad-violet); }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background: var(--paper-tint-2); padding: 56px 0 36px; border-top: 1px solid var(--line); }
+  .footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap: 32px; margin-bottom: 36px; align-items:center; }
+  .footer-brand{ display:flex; align-items:center; gap:10px; }
+  .footer-brand img{ width: 28px; height: 28px; border-radius: 6px; }
+  .footer-brand span{ font-family: var(--display); font-size: 1.05rem; color: var(--ink); }
+  .footer-links{ display:flex; gap:28px; list-style:none; }
+  .footer-links a{ font-size: 0.86rem; text-decoration:none; color: var(--ink-dim); }
+  .footer-links a:hover{ color: var(--grad-violet); }
+  .footer-bottom{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .gauge-wrap{ order:-1; }
+    .pilier-grid{ grid-template-columns: 1fr 1fr; }
+    .pilote-grid{ grid-template-columns: 1fr; }
+    nav ul{ display:none; }
+  }
+  @media (max-width: 560px){
+    .pilier-grid{ grid-template-columns: 1fr; }
+    .demarche-item{ grid-template-columns: 1fr; gap: 6px; }
+    section{ padding: 60px 0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    #needle{ transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo-group">
+      <img src="logo.png" alt="Logo Label MHB">
+      <div class="logo-word">Label <span class="grad-text">MHB</span></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#barometre">Le Baromètre</a></li>
+        <li><a href="#demarche">La démarche</a></li>
+        <li><a href="#comparatif">Comparatif</a></li>
+        <li><a href="#pilote">Programme de lancement</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">My Human Business — Label MHB</p>
+        <h1>Le climat humain de votre entreprise n'est pas une intuition.<br><span class="grad-text">C'est une donnée.</span></h1>
+        <p class="lead">Le Label MHB mesure la qualité humaine réelle d'une TPE ou d'une PME : confiance, charge de travail, reconnaissance, sécurité psychologique. Pas une note de façade. Un diagnostic, une démarche, une certification.</p>
+        <div class="cta-row">
+          <a href="#demarche" class="btn btn-primary">Voir la démarche</a>
+          <a href="#pilote" class="btn btn-ghost">Rejoindre le programme</a>
+        </div>
+      </div>
+
+      <div class="gauge-wrap" id="gaugeWrap">
+        <svg width="320" height="220" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#6B86C9"/>
+              <stop offset="50%" stop-color="#5FB6B6"/>
+              <stop offset="100%" stop-color="#8C7FC4"/>
+            </linearGradient>
+          </defs>
+          <path d="M 30 170 A 130 130 0 0 1 290 170" fill="none" stroke="rgba(42,42,48,0.08)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M 30 170 A 130 130 0 0 1 290 170" fill="none" stroke="url(#arcGrad)" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+          <text x="30" y="195" class="gauge-label">RISQUE</text>
+          <text x="290" y="195" class="gauge-label" text-anchor="end">EXCELLENCE</text>
+          <g id="needle">
+            <line x1="160" y1="170" x2="160" y2="58" stroke="#2A2A30" stroke-width="3"/>
+            <circle cx="160" cy="170" r="8" fill="#2A2A30"/>
+          </g>
+          <text x="160" y="212" text-anchor="middle" class="gauge-readout">78/100</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="barometre" class="tint">
+    <div class="wrap">
+      <p class="eyebrow">Le référentiel</p>
+      <h2>52 questions. 13 piliers. Un climat humain mesuré, pas deviné.</h2>
+      <p class="section-intro">Le Baromètre Humain interroge les salariés sur douze dimensions concrètes du quotidien au travail. Chaque pilier compte quatre questions. Le score qui en résulte conditionne l'attribution du label.</p>
+
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num grad-text">52</span><span class="stat-label">questions</span></div>
+        <div class="stat"><span class="stat-num grad-text">13</span><span class="stat-label">piliers</span></div>
+        <div class="stat"><span class="stat-num grad-text">1</span><span class="stat-label">score, par entreprise</span></div>
+      </div>
+
+      <div class="stat-row stat-row-time">
+        <div class="stat"><span class="stat-num grad-text">10 min</span><span class="stat-label">par salarié</span></div>
+        <div class="stat"><span class="stat-num grad-text">1h30</span><span class="stat-label">pour le dirigeant</span></div>
+      </div>
+
+
+      <div class="pilier-13">
+        <strong>Un signal de vigilance, jamais un frein</strong>
+        Le diagnostic intègre un indicateur ergonomique distinct du score. S'il révèle un risque de pénibilité, l'entreprise est orientée vers un ergonome — sans que cela ne bloque jamais l'obtention du label.
+      </div>
+    </div>
+  </section>
+
+  <section id="demarche">
+    <div class="wrap">
+      <p class="eyebrow">Le parcours</p>
+      <h2>Trois étapes, du diagnostic à la labellisation.</h2>
+
+      <div class="demarche-list">
+        <div class="demarche-item">
+          <div class="demarche-num">01 / 03</div>
+          <div>
+            <h3>Diagnostic</h3>
+            <p>Passation du Baromètre Humain auprès des salariés. Le taux de participation requis dépend de la taille de l'entreprise — voir le détail ci-dessous. Trois salariés minimum pour engager la démarche.</p>
+          </div>
+        </div>
+        <div class="demarche-item">
+          <div class="demarche-num">02 / 03</div>
+          <div>
+            <h3>Restitution</h3>
+            <p>Analyse des résultats, pilier par pilier. Le dirigeant repart avec un score, une lecture claire des points forts et des points de vigilance, et une orientation ergonome si le signal pénibilité le justifie.</p>
+          </div>
+        </div>
+        <div class="demarche-item">
+          <div class="demarche-num">03 / 03</div>
+          <div>
+            <h3>Labellisation</h3>
+            <p>Le score obtenu détermine l'attribution du Label MHB. Le label se renouvelle, avec une remise de 200€ pour toute entreprise au score de 75/100 ou plus.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="seuils">
+        <table>
+          <thead><tr><th>Taille de l'entreprise</th><th>Participation requise</th></tr></thead>
+          <tbody>
+            <tr><td>3 à 5 salariés</td><td class="num">100%</td></tr>
+            <tr><td>6 à 9 salariés</td><td class="num">80%</td></tr>
+            <tr><td>10 à 49 salariés</td><td class="num">75%</td></tr>
+            <tr><td>50 salariés et plus</td><td class="num">70%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="qui-y-gagne" class="tint">
+    <div class="wrap">
+      <p class="eyebrow">Des deux côtés</p>
+      <h2>Ce que ça change, pour le dirigeant et pour le salarié.</h2>
+
+      <div class="gagne-grid">
+        <div class="gagne-col">
+          <h3>Pour le dirigeant</h3>
+          <ul class="gagne-list">
+            <li>Un rapport mensuel, données individuelles et collectives — pas un instantané une fois par an.</li>
+            <li>Un profil Keenli dirigeant, pour être reconnu aussi de son côté.</li>
+            <li>Une marque employeur appuyée sur des faits, pas un slogan.</li>
+            <li>Un indicateur pénibilité qui oriente vers un ergonome partenaire, jamais vers un dossier classé.</li>
+            <li>Une restitution concrète, jamais un questionnaire qui reste sans suite.</li>
+            <li>Et bien plus encore.</li>
+          </ul>
+        </div>
+        <div class="gagne-col">
+          <h3>Pour le salarié</h3>
+          <ul class="gagne-list">
+            <li>Anonymat garanti sur les réponses à l'audit : aucune réponse individuelle remontée à la direction.</li>
+            <li>Un profil Keenli personnel — la reconnaissance dépasse le diagnostic annuel.</li>
+            <li>Une reconnaissance sans note ni classement, qui construit l'estime de soi plutôt que la comparaison.</li>
+            <li>Une mise en avant par l'employeur, visible sur son propre profil.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="keenli-cta-row">
+        <a href="https://www.keenli.app" target="_blank" rel="noopener" class="btn btn-keenli">
+          <img src="logo-keenli.png" alt="Keenli" class="keenli-logo">
+          <span>Découvrir l'app</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="rse">
+    <div class="wrap">
+      <p class="eyebrow">Un autre bénéfice</p>
+      <h2>Un atout RSE, pas seulement un label RH.</h2>
+      <p class="section-intro">Le volet social fait partie intégrante d'une démarche RSE. Le Label MHB l'objective, là où il reste souvent informel dans les TPE/PME.</p>
+
+      <div class="rse-grid">
+        <div class="rse-card">
+          <h3>Volet social structuré</h3>
+          <p>Une donnée chiffrée et suivie dans le temps pour le pilier social de votre démarche RSE, plutôt qu'une intuition difficile à objectiver.</p>
+        </div>
+        <div class="rse-card">
+          <h3>Argument dans les appels d'offres</h3>
+          <p>De plus en plus de marchés publics et privés intègrent un critère RSE. Le label apporte une preuve concrète, pas une déclaration d'intention.</p>
+        </div>
+        <div class="rse-card">
+          <h3>Marque employeur renforcée</h3>
+          <p>Un signal clair et vérifié pour attirer et fidéliser, dans des métiers où le recrutement reste tendu.</p>
+        </div>
+        <div class="rse-card">
+          <h3>Prévention des risques</h3>
+          <p>L'indicateur pénibilité anticipe une partie du DUERP et oriente vers un ergonome avant que la situation ne se dégrade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparatif" class="tint">
+    <div class="wrap">
+      <p class="eyebrow">Pourquoi un référentiel différent</p>
+      <h2>Pourquoi le Label MHB plutôt qu'un autre ?</h2>
+
+      <div class="compare">
+        <table>
+          <thead>
+            <tr><th></th><th>Labels classiques</th><th class="hi">Label My Human Business</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Conçu pour</td><td>Plutôt grands comptes</td><td class="hi">TPE/PME, dès 3 salariés</td></tr>
+            <tr><td>Questions / piliers</td><td>18 questions</td><td class="hi">52 questions / 13 piliers</td></tr>
+            <tr><td>Participation requise</td><td>50% des salariés</td><td class="hi">De 70% à 100% selon l'effectif</td></tr>
+            <tr><td>Classement public</td><td>Oui — compétition</td><td class="hi">Non — visibilité sans compétition</td></tr>
+            <tr><td>Accompagnement</td><td>Aucun</td><td class="hi">Suivi mensuel + restitution HEP Collective</td></tr>
+            <tr><td>Rapport mensuel</td><td>Non</td><td class="hi">Oui — données individuelles et collectives</td></tr>
+            <tr><td>Profil salarié individuel</td><td>Non</td><td class="hi">Oui — chaque salarié a son profil Keenli</td></tr>
+            <tr><td>Outil de veille interne</td><td>Non</td><td class="hi">Oui</td></tr>
+            <tr><td>Pénibilité</td><td>Non</td><td class="hi">Oui — indicateur dédié avec ergonome partenaire</td></tr>
+            <tr><td>Affichage / communication</td><td>Basique</td><td class="hi">Site, offres d'emploi à venir, supports comm à venir</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="compare-note">Un label gratuit et sans accompagnement n'engage personne.<br>La valeur d'une certification tient à son exigence et à ce qui se passe après.</p>
+    </div>
+  </section>
+
+  <section id="pilote" class="tint">
+    <div class="wrap">
+      <p class="eyebrow">Programme de lancement</p>
+      <h2>Les 5 premières ouvrent la voie. 20 places au total.</h2>
+      <p class="section-intro">Le Label MHB se construit avec un nombre limité d'entreprises. Les 20 premières bénéficient d'un tarif préférentiel acquis à vie, conservé à chaque renouvellement.</p>
+
+      <div class="pilote-grid">
+        <div class="pilote-card">
+          <h3>Entreprise pilote</h3>
+          <ul>
+            <li>Engagement sur 6 mois, pour tester la démarche au plus près.</li>
+            <li>Accompagnement direct et renforcé sur la lecture des résultats.</li>
+            <li>Paiement en deux temps : 50% à la signature, 50% après restitution.</li>
+            <li>Tarif préférentiel acquis à vie, dès la première labellisation.</li>
+            <li>-30% supplémentaires sur les 6 premiers mois.</li>
+          </ul>
+          <div class="pilote-counter">5 places</div>
+        </div>
+
+        <div class="pilote-card">
+          <h3>Entreprise fondatrice</h3>
+          <ul>
+            <li>Engagement direct sur 1 an, dès l'entrée dans le programme.</li>
+            <li>Même démarche complète : diagnostic, restitution, labellisation.</li>
+            <li>Paiement en deux temps : 50% à la signature, 50% après restitution.</li>
+            <li>Tarif préférentiel acquis à vie, dès la première labellisation.</li>
+          </ul>
+          <div class="pilote-counter">15 places</div>
+        </div>
+      </div>
+
+      <div class="pilote-card" style="margin-top:28px;">
+        <h3>Pour qui</h3>
+        <ul>
+          <li>Des dirigeants de TPE/PME qui veulent objectiver ce qu'ils sentent déjà sur le terrain.</li>
+          <li>Des équipes RH qui cherchent un outil de mesure crédible, pas une enquête de satisfaction de plus.</li>
+          <li>Des entreprises prêtes à entendre un score, y compris quand il pointe une fragilité réelle. Trois salariés minimum, aucun secteur exclu.</li>
+        </ul>
+        <a href="mailto:contact@hepcollective.fr?subject=Candidature%20Label%20MHB&body=Nom%20de%20l%27entreprise%20%3A%0A%0ANom%20et%20fonction%20du%20contact%20%3A%0A%0ANombre%20de%20salaries%20%3A%0A%0ASecteur%20d%27activite%20%3A%0A%0AValeurs%20de%20l%27entreprise%20%3A%0A%0APourquoi%20candidater%20au%20Label%20MHB%20%3A%0A" class="btn btn-primary" style="margin-top:24px;">Candidater au programme</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>Nous contacter directement</h3>
+        <div class="contact-row">
+          <a href="tel:+33651298399" class="contact-item">
+            <span class="contact-label">Téléphone</span>
+            <span class="contact-value">06 51 29 83 99</span>
+          </a>
+          <a href="mailto:contact@hepcollective.fr" class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">contact@hepcollective.fr</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Logo Label MHB">
+        <span>Label <em style="font-style:italic;" class="grad-text">MHB</em></span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#barometre">Le Baromètre</a></li>
+        <li><a href="#demarche">La démarche</a></li>
+        <li><a href="#comparatif">Comparatif</a></li>
+        <li><a href="#pilote">Programme de lancement</a></li>
+        <!-- LIEN KEENLI : à ajouter ici une fois validé -->
+        <li><a href="mailto:contact@hepcollective.fr">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>My Human Business — HEP Collective</span>
+      <span>Vaison-la-Romaine</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const gaugeWrap = document.getElementById('gaugeWrap');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        gaugeWrap.classList.add('in-view');
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(gaugeWrap);
+</script>
+
+</body>
+</html>
