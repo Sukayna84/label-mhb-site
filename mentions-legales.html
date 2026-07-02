@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Label MHB — My Human Business</title>
-<meta name="description" content="Label MHB : la certification qualité humaine pour TPE/PME. Diagnostic, accompagnement, labellisation.">
+<title>Mentions légales — Label MHB / My Human Business</title>
+<meta name="description" content="Mentions légales du site My Human Business.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -518,6 +518,45 @@
     #needle{ transition: none; }
   }
 </style>
+<style>
+  .legal-wrap{ max-width: 760px; margin: 0 auto; padding: 70px 28px 100px; }
+  .legal-wrap h1{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 2.1rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .legal-updated{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-bottom: 44px;
+  }
+  .legal-wrap h2{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin: 36px 0 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .legal-wrap h2:first-of-type{ border-top: none; padding-top: 0; }
+  .legal-wrap p{
+    font-size: 0.96rem;
+    color: var(--ink-dim);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .legal-wrap a{ color: var(--grad-violet); text-decoration: underline; }
+  .legal-fill{
+    background: var(--paper-tint);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-style: italic;
+  }
+</style>
 </head>
 <body>
 
@@ -529,273 +568,50 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#barometre">Le Baromètre</a></li>
-        <li><a href="#demarche">La démarche</a></li>
-        <li><a href="#comparatif">Comparatif</a></li>
-        <li><a href="#pilote">Programme de lancement</a></li>
+        <li><a href="index.html#barometre">Le Baromètre</a></li>
+        <li><a href="index.html#demarche">La démarche</a></li>
+        <li><a href="index.html#comparatif">Comparatif</a></li>
+        <li><a href="index.html#pilote">Programme de lancement</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <main>
+  <div class="legal-wrap">
+    <h1>Mentions légales</h1>
+    <div class="legal-updated">Dernière mise à jour : juillet 2026</div>
 
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">My Human Business — Label MHB</p>
-        <h1>Le climat humain de votre entreprise n'est pas une intuition.<br><span class="grad-text">C'est une donnée.</span></h1>
-        <p class="lead">Le Label MHB mesure la qualité humaine réelle d'une TPE ou d'une PME : confiance, charge de travail, reconnaissance, sécurité psychologique. Pas une note de façade. Un diagnostic, une démarche, une certification.</p>
-        <p class="tagline">La qualité de vie au travail ne se déclare pas. <span class="grad-text">Elle se mesure.</span></p>
-        <div class="cta-row">
-          <a href="#demarche" class="btn btn-primary">Voir la démarche</a>
-          <a href="#pilote" class="btn btn-ghost">Rejoindre le programme</a>
-        </div>
-      </div>
+    <h2>Éditeur du site</h2>
+    <p>Le site My Human Business est édité par Vanessa HUSSON, exerçant sous l'entité HEP Collective, entreprise individuelle, immatriculée sous le SIREN 103 565 560, dont l'adresse est : 470 avenue Gabriel Péri, 84110 Vaison-la-Romaine, France.</p>
+    <p>Contact : <a href="mailto:contact@hepcollective.fr">contact@hepcollective.fr</a></p>
+    <p>Directrice de la publication : Vanessa HUSSON.</p>
 
-      <div class="gauge-wrap" id="gaugeWrap">
-        <svg width="320" height="220" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#6B86C9"/>
-              <stop offset="50%" stop-color="#5FB6B6"/>
-              <stop offset="100%" stop-color="#8C7FC4"/>
-            </linearGradient>
-          </defs>
-          <path d="M 30 170 A 130 130 0 0 1 290 170" fill="none" stroke="rgba(42,42,48,0.08)" stroke-width="14" stroke-linecap="round"/>
-          <path d="M 30 170 A 130 130 0 0 1 290 170" fill="none" stroke="url(#arcGrad)" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
-          <text x="30" y="195" class="gauge-label">RISQUE</text>
-          <text x="290" y="195" class="gauge-label" text-anchor="end">EXCELLENCE</text>
-          <g id="needle">
-            <line x1="160" y1="170" x2="160" y2="58" stroke="#2A2A30" stroke-width="3"/>
-            <circle cx="160" cy="170" r="8" fill="#2A2A30"/>
-          </g>
-          <text x="160" y="212" text-anchor="middle" class="gauge-readout">78/100</text>
-        </svg>
-      </div>
-    </div>
-  </section>
+    <h2>Hébergement</h2>
+    <p>Le site est hébergé par Scaleway SAS, 8 rue de la Ville l'Évêque, 75008 Paris, France.</p>
 
-  <section id="barometre" class="tint">
-    <div class="wrap">
-      <p class="eyebrow">Le référentiel</p>
-      <h2>52 questions. 13 piliers. Un climat humain mesuré, pas deviné.</h2>
-      <p class="section-intro">Le Baromètre Humain interroge les salariés sur douze dimensions concrètes du quotidien au travail. Chaque pilier compte quatre questions. Le score qui en résulte conditionne l'attribution du label.</p>
+    <h2>Activité et informations générales</h2>
+    <p>Le site présente les activités, services, contenus et documents relatifs à la marque My Human Business, au Baromètre Humain et au Label MHB, dispositif privé délivré exclusivement par HEP Collective. Le Label MHB ne constitue ni un label d'État, ni une certification réglementaire, ni un agrément délivré par une autorité publique.</p>
 
-      <div class="stat-row">
-        <div class="stat"><span class="stat-num grad-text">52</span><span class="stat-label">questions</span></div>
-        <div class="stat"><span class="stat-num grad-text">13</span><span class="stat-label">piliers</span></div>
-        <div class="stat"><span class="stat-num grad-text">1</span><span class="stat-label">score, par entreprise</span></div>
-      </div>
+    <h2>Propriété intellectuelle</h2>
+    <p>La marque My Human Business, le Label MHB, le logo Label MHB, le Baromètre Humain, la méthodologie HEP ainsi que l'ensemble des contenus originaux publiés sur le site sont protégés par le droit de la propriété intellectuelle et appartiennent exclusivement à Vanessa HUSSON / HEP Collective, sauf mention contraire.</p>
+    <p>Toute reproduction, représentation, diffusion, adaptation ou utilisation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
 
-      <div class="stat-row stat-row-time">
-        <div class="stat"><span class="stat-num grad-text">10 min</span><span class="stat-label">par salarié</span></div>
-        <div class="stat"><span class="stat-num grad-text">1h30</span><span class="stat-label">pour le dirigeant</span></div>
-      </div>
+    <h2>Responsabilité</h2>
+    <p>HEP Collective s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur le site My Human Business. Toutefois, ces informations sont communiquées à titre indicatif et peuvent évoluer.</p>
+    <p>HEP Collective ne saurait être tenue responsable des dommages directs ou indirects résultant de l'accès au site, de son utilisation, d'une indisponibilité temporaire ou d'une erreur de contenu.</p>
 
+    <h2>Données personnelles</h2>
+    <p>Les traitements de données personnelles réalisés via le site, les formulaires de contact, le Baromètre Humain ou les dispositifs liés au Label MHB sont décrits dans la politique de confidentialité applicable.</p>
+    <p>Pour toute question relative aux données personnelles, vous pouvez écrire à : <a href="mailto:contact@hepcollective.fr">contact@hepcollective.fr</a></p>
 
-      <div class="pilier-13">
-        <strong>Un signal de vigilance, jamais un frein</strong>
-        Le diagnostic intègre un indicateur ergonomique distinct du score. S'il révèle un risque de pénibilité, l'entreprise est orientée vers un ergonome — sans que cela ne bloque jamais l'obtention du label.
-      </div>
-    </div>
-  </section>
+    <h2>Cookies</h2>
+    <p>Le site peut utiliser des cookies strictement nécessaires à son fonctionnement et, le cas échéant, à la sécurisation du service ou à la mesure d'audience si ces outils sont activés. Les modalités détaillées figurent dans la politique cookies du site.</p>
 
-  <section id="demarche">
-    <div class="wrap">
-      <p class="eyebrow">Le parcours</p>
-      <h2>Trois étapes, du diagnostic à la labellisation.</h2>
-
-      <div class="demarche-list">
-        <div class="demarche-item">
-          <div class="demarche-num">01 / 03</div>
-          <div>
-            <h3>Diagnostic</h3>
-            <p>Passation du Baromètre Humain auprès des salariés. Le taux de participation requis dépend de la taille de l'entreprise — voir le détail ci-dessous. Trois salariés minimum pour engager la démarche.</p>
-          </div>
-        </div>
-        <div class="demarche-item">
-          <div class="demarche-num">02 / 03</div>
-          <div>
-            <h3>Restitution</h3>
-            <p>Analyse des résultats, pilier par pilier. Le dirigeant repart avec un score, une lecture claire des points forts et des points de vigilance, et une orientation ergonome si le signal pénibilité le justifie.</p>
-          </div>
-        </div>
-        <div class="demarche-item">
-          <div class="demarche-num">03 / 03</div>
-          <div>
-            <h3>Labellisation</h3>
-            <p>Le score obtenu détermine l'attribution du Label MHB. Le label se renouvelle, avec une remise de 200€ pour toute entreprise au score de 75/100 ou plus.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="seuils">
-        <table>
-          <thead><tr><th>Taille de l'entreprise</th><th>Participation requise</th></tr></thead>
-          <tbody>
-            <tr><td>3 à 5 salariés</td><td class="num">100%</td></tr>
-            <tr><td>6 à 9 salariés</td><td class="num">80%</td></tr>
-            <tr><td>10 à 49 salariés</td><td class="num">75%</td></tr>
-            <tr><td>50 salariés et plus</td><td class="num">70%</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section id="qui-y-gagne" class="tint">
-    <div class="wrap">
-      <p class="eyebrow">Des deux côtés</p>
-      <h2>Ce que ça change, pour le dirigeant et pour le salarié.</h2>
-
-      <div class="gagne-grid">
-        <div class="gagne-col">
-          <h3>Pour le dirigeant</h3>
-          <ul class="gagne-list">
-            <li>Un rapport mensuel, données individuelles et collectives — pas un instantané une fois par an.</li>
-            <li>Un profil Keenli dirigeant, pour être reconnu aussi de son côté.</li>
-            <li>Une marque employeur appuyée sur des faits, pas un slogan.</li>
-            <li>Un indicateur pénibilité qui oriente vers un ergonome partenaire, jamais vers un dossier classé.</li>
-            <li>Une restitution concrète, jamais un questionnaire qui reste sans suite.</li>
-            <li>Et bien plus encore.</li>
-          </ul>
-        </div>
-        <div class="gagne-col">
-          <h3>Pour le salarié</h3>
-          <ul class="gagne-list">
-            <li>Anonymat garanti sur les réponses à l'audit : aucune réponse individuelle remontée à la direction.</li>
-            <li>Un profil Keenli personnel — la reconnaissance dépasse le diagnostic annuel.</li>
-            <li>Une reconnaissance sans note ni classement, qui construit l'estime de soi plutôt que la comparaison.</li>
-            <li>Une mise en avant par l'employeur, visible sur son propre profil.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="keenli-cta-row">
-        <a href="https://www.keenli.app" target="_blank" rel="noopener" class="btn btn-keenli">
-          <img src="logo-keenli.png" alt="Keenli" class="keenli-logo">
-          <span>Découvrir l'app</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="rse">
-    <div class="wrap">
-      <p class="eyebrow">Un autre bénéfice</p>
-      <h2>Un atout RSE, pas seulement un label RH.</h2>
-      <p class="section-intro">Le volet social fait partie intégrante d'une démarche RSE. Le Label MHB l'objective, là où il reste souvent informel dans les TPE/PME.</p>
-
-      <div class="rse-grid">
-        <div class="rse-card">
-          <h3>Volet social structuré</h3>
-          <p>Une donnée chiffrée et suivie dans le temps pour le pilier social de votre démarche RSE, plutôt qu'une intuition difficile à objectiver.</p>
-        </div>
-        <div class="rse-card">
-          <h3>Argument dans les appels d'offres</h3>
-          <p>De plus en plus de marchés publics et privés intègrent un critère RSE. Le label apporte une preuve concrète, pas une déclaration d'intention.</p>
-        </div>
-        <div class="rse-card">
-          <h3>Marque employeur renforcée</h3>
-          <p>Un repère sûr, pas une promesse en l'air : le label signale un endroit où la qualité de vie au travail est réelle, pas seulement déclarée — pour vos salariés comme pour ceux qui envisagent de vous rejoindre.</p>
-        </div>
-        <div class="rse-card">
-          <h3>Prévention des risques</h3>
-          <p>L'indicateur pénibilité anticipe une partie du DUERP et oriente vers un ergonome avant que la situation ne se dégrade.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="comparatif" class="tint">
-    <div class="wrap">
-      <p class="eyebrow">Pourquoi un référentiel différent</p>
-      <h2>Pourquoi le Label MHB plutôt qu'un autre ?</h2>
-
-      <div class="compare">
-        <table>
-          <thead>
-            <tr><th></th><th>Labels classiques</th><th class="hi">Label My Human Business</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Conçu pour</td><td>Plutôt grands comptes</td><td class="hi">TPE/PME, dès 3 salariés</td></tr>
-            <tr><td>Questions / piliers</td><td>18 questions</td><td class="hi">52 questions / 13 piliers</td></tr>
-            <tr><td>Participation requise</td><td>50% des salariés</td><td class="hi">De 70% à 100% selon l'effectif</td></tr>
-            <tr><td>Classement public</td><td>Oui — compétition</td><td class="hi">Non — visibilité sans compétition</td></tr>
-            <tr><td>Accompagnement</td><td>Aucun</td><td class="hi">Suivi mensuel + restitution HEP Collective</td></tr>
-            <tr><td>Rapport mensuel</td><td>Non</td><td class="hi">Oui — données individuelles et collectives</td></tr>
-            <tr><td>Profil salarié individuel</td><td>Non</td><td class="hi">Oui — chaque salarié a son profil Keenli</td></tr>
-            <tr><td>Outil de veille interne</td><td>Non</td><td class="hi">Oui</td></tr>
-            <tr><td>Pénibilité</td><td>Non</td><td class="hi">Oui — indicateur dédié avec ergonome partenaire</td></tr>
-            <tr><td>Affichage / communication</td><td>Basique</td><td class="hi">Site, offres d'emploi à venir, supports comm à venir</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="compare-note">Un label gratuit et sans accompagnement n'engage personne.<br>La valeur d'une certification tient à son exigence et à ce qui se passe après.</p>
-    </div>
-  </section>
-
-  <section id="pilote" class="tint">
-    <div class="wrap">
-      <p class="eyebrow">Programme de lancement</p>
-      <h2>Les 5 premières ouvrent la voie. 20 places au total.</h2>
-      <p class="section-intro">Le Label MHB se construit avec un nombre limité d'entreprises. Les 20 premières bénéficient d'un tarif préférentiel acquis à vie, conservé à chaque renouvellement.</p>
-
-      <div class="pilote-grid">
-        <div class="pilote-card">
-          <h3>Entreprise pilote</h3>
-          <ul>
-            <li>Engagement sur 6 mois, pour tester la démarche au plus près.</li>
-            <li>Accompagnement direct et renforcé sur la lecture des résultats.</li>
-            <li>Paiement en deux temps : 50% à la signature, 50% après restitution.</li>
-            <li>Tarif préférentiel acquis à vie, dès la première labellisation.</li>
-            <li>-30% supplémentaires sur les 6 premiers mois.</li>
-          </ul>
-          <div class="pilote-counter">5 places</div>
-        </div>
-
-        <div class="pilote-card">
-          <h3>Entreprise fondatrice</h3>
-          <ul>
-            <li>Engagement direct sur 1 an, dès l'entrée dans le programme.</li>
-            <li>Même démarche complète : diagnostic, restitution, labellisation.</li>
-            <li>Paiement en deux temps : 50% à la signature, 50% après restitution.</li>
-            <li>Tarif préférentiel acquis à vie, dès la première labellisation.</li>
-          </ul>
-          <div class="pilote-counter">15 places</div>
-        </div>
-      </div>
-
-      <div class="pilote-card" style="margin-top:28px;">
-        <h3>Pour qui</h3>
-        <ul>
-          <li>Des dirigeants de TPE/PME qui veulent objectiver ce qu'ils sentent déjà sur le terrain.</li>
-          <li>Des équipes RH qui cherchent un outil de mesure crédible, pas une enquête de satisfaction de plus.</li>
-          <li>Des entreprises prêtes à entendre un score, y compris quand il pointe une fragilité réelle. Trois salariés minimum, aucun secteur exclu.</li>
-        </ul>
-        <a href="mailto:contact@hepcollective.fr?subject=Candidature%20Label%20MHB&body=Nom%20de%20l%27entreprise%20%3A%0A%0ANom%20et%20fonction%20du%20contact%20%3A%0A%0ANombre%20de%20salaries%20%3A%0A%0ASecteur%20d%27activite%20%3A%0A%0AValeurs%20de%20l%27entreprise%20%3A%0A%0APourquoi%20candidater%20au%20Label%20MHB%20%3A%0A" class="btn btn-primary" style="margin-top:24px;">Candidater au programme</a>
-      </div>
-
-      <div class="contact-card">
-        <h3>Nous contacter directement</h3>
-        <div class="contact-row">
-          <a href="tel:+33651298399" class="contact-item">
-            <span class="contact-label">Téléphone</span>
-            <span class="contact-value">06 51 29 83 99</span>
-          </a>
-          <a href="mailto:contact@hepcollective.fr" class="contact-item">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">contact@hepcollective.fr</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
+    <h2>Contact</h2>
+    <p>Pour toute demande : <a href="mailto:contact@hepcollective.fr">contact@hepcollective.fr</a></p>
+  </div>
 </main>
-
 
 <footer>
   <div class="wrap">
@@ -805,11 +621,10 @@
         <span>Label <em style="font-style:italic;" class="grad-text">MHB</em></span>
       </div>
       <ul class="footer-links">
-        <li><a href="#barometre">Le Baromètre</a></li>
-        <li><a href="#demarche">La démarche</a></li>
-        <li><a href="#comparatif">Comparatif</a></li>
-        <li><a href="#pilote">Programme de lancement</a></li>
-        <!-- LIEN KEENLI : à ajouter ici une fois validé -->
+        <li><a href="index.html#barometre">Le Baromètre</a></li>
+        <li><a href="index.html#demarche">La démarche</a></li>
+        <li><a href="index.html#comparatif">Comparatif</a></li>
+        <li><a href="index.html#pilote">Programme de lancement</a></li>
         <li><a href="mentions-legales.html">Mentions légales</a></li>
         <li><a href="mailto:contact@hepcollective.fr">Contact</a></li>
       </ul>
@@ -823,19 +638,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  const gaugeWrap = document.getElementById('gaugeWrap');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        gaugeWrap.classList.add('in-view');
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.4 });
-  observer.observe(gaugeWrap);
-</script>
 
 </body>
 </html>
