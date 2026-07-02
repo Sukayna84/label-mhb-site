@@ -113,6 +113,18 @@
     max-width: 46ch;
     margin-bottom: 32px;
   }
+  .tagline{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--ink);
+    max-width: 42ch;
+    padding-left: 18px;
+    border-left: 3px solid;
+    border-image: var(--grad) 1;
+    margin-bottom: 36px;
+  }
+  .tagline .grad-text{ font-style: normal; }
   .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
@@ -151,7 +163,7 @@
     display:flex;
     justify-content:center;
     margin-top: 40px;
-    padding-top: 32px;git add .
+    padding-top: 32px;
     border-top: 1px solid var(--line);
   }
 
@@ -534,6 +546,7 @@
         <p class="eyebrow">My Human Business - Label MHB</p>
         <h1>Le climat humain de votre entreprise n'est pas une intuition.<br><span class="grad-text">C'est une donnée.</span></h1>
         <p class="lead">Le Label MHB mesure la qualité humaine réelle d'une TPE ou d'une PME : confiance, charge de travail, reconnaissance, sécurité psychologique. Pas une note de façade. Un diagnostic, une démarche, une certification.</p>
+        <p class="tagline">La qualité de vie au travail ne se déclare pas. <span class="grad-text">Elle se mesure.</span></p>
         <div class="cta-row">
           <a href="#demarche" class="btn btn-primary">Voir la démarche</a>
           <a href="#pilote" class="btn btn-ghost">Rejoindre le programme</a>
@@ -803,6 +816,9 @@
     <div class="footer-bottom">
       <span>My Human Business - HEP Collective</span>
       <span>Vaison-la-Romaine</span>
+    </div>
+    <div class="footer-bottom" style="margin-top:8px;">
+      <span>Label privé My Human Business, propriété de HEP Collective (marque déposée). Ne constitue ni un label d'État ni une certification réglementaire.</span>
     </div>
   </div>
 </footer>
