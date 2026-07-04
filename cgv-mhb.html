@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions générales de vente — Label MHB / My Human Business</title>
+<meta name="description" content="Conditions générales de vente des prestations My Human Business / Label MHB, proposées par HEP Collective.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2A30;
+    --ink-dim: rgba(42,42,48,0.64);
+    --ink-faint: rgba(42,42,48,0.42);
+    --paper:#FFFFFF;
+    --paper-tint:#F6F4FB;
+    --paper-tint-2:#F0EEF9;
+    --grad-blue:#6B86C9;
+    --grad-teal:#5FB6B6;
+    --grad-violet:#8C7FC4;
+    --grad: linear-gradient(120deg, var(--grad-blue) 0%, var(--grad-teal) 50%, var(--grad-violet) 100%);
+    --line: rgba(42,42,48,0.10);
+    --line-soft: rgba(42,42,48,0.06);
+    --display: 'Fraunces', serif;
+    --body: 'Work Sans', sans-serif;
+    --mono: 'Space Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  :focus-visible{
+    outline: 2px solid var(--grad-violet);
+    outline-offset: 3px;
+  }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grad-text{
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-style: italic;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px;
+    max-width: 1080px; margin:0 auto;
+  }
+  .logo-group{ display:flex; align-items:center; gap:12px; }
+  .logo-group img{ width: auto; height: 68px; border-radius: 12px; }
+  .logo-word{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+  }
+  nav ul{ list-style:none; display:flex; gap: 28px; }
+  nav a{
+    font-size: 0.88rem;
+    text-decoration:none;
+    color: var(--ink);
+    opacity: 0.72;
+    transition: opacity .2s;
+  }
+  nav a:hover{ opacity:1; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding: 88px 0 64px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 18px 0 22px;
+    color: var(--ink);
+  }
+  .hero p.lead{
+    font-size: 1.08rem;
+    color: var(--ink-dim);
+    max-width: 46ch;
+    margin-bottom: 32px;
+  }
+  .tagline{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--ink);
+    max-width: 42ch;
+    padding-left: 18px;
+    border-left: 3px solid;
+    border-image: var(--grad) 1;
+    margin-bottom: 36px;
+  }
+  .tagline .grad-text{ font-style: normal; }
+  .cta-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 13px 24px;
+    border-radius: 6px;
+    text-decoration:none;
+    transition: transform .15s ease, box-shadow .2s ease;
+  }
+  .btn-primary{
+    background: var(--grad);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(108,120,196,0.28);
+  }
+  .btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(108,120,196,0.36); }
+  .btn-ghost{
+    position: relative;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid transparent;
+    background-image: linear-gradient(var(--paper), var(--paper)), var(--grad);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+  .btn-ghost:hover{ transform: translateY(-1px); }
+  .btn-keenli{
+    background: #14101F;
+    color: #fff;
+    gap: 10px;
+  }
+  .btn-keenli:hover{ transform: translateY(-1px); background: #1E1830; }
+  .keenli-logo{ height: 48px; width: auto; }
+  .keenli-cta-row{
+    display:flex;
+    justify-content:center;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* gauge */
+  .gauge-wrap{ display:flex; justify-content:center; }
+  .gauge-label{
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    fill: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+  .gauge-readout{
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    fill: var(--ink);
+    font-weight: 700;
+  }
+  #needle{
+    transform-origin: 160px 170px;
+    transform: rotate(-58deg);
+    transition: transform 1.6s cubic-bezier(.2,.9,.25,1);
+  }
+  .gauge-wrap.in-view #needle{ transform: rotate(36deg); }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding: 84px 0; }
+  .tint{ background: var(--paper-tint); }
+  h2{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+    margin: 10px 0 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .section-intro{
+    max-width: 60ch;
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    margin-bottom: 48px;
+  }
+
+  /* ---------- STATS (référentiel, sans détail) ---------- */
+  .stat-row{
+    display:flex;
+    gap: 56px;
+    flex-wrap: wrap;
+    padding: 32px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  .stat{ display:flex; flex-direction:column; gap:4px; }
+  .stat-num{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+  .stat-label{
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .stat-row-time{
+    padding-top: 20px;
+    border-top: none;
+    gap: 40px;
+  }
+  .stat-row-time .stat-num{ font-size: 1.7rem; }
+  .pilier-13{
+    margin-top: 36px;
+    border-left: 3px solid;
+    border-image: var(--grad) 1;
+    padding: 18px 22px;
+    background: var(--paper-tint);
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+    max-width: 64ch;
+  }
+  .pilier-13 strong{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display:block; margin-bottom:6px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- QUI Y GAGNE ---------- */
+  .gagne-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+  .gagne-col h3{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .gagne-list{ list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .gagne-list li{
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .gagne-list li::before{
+    content: '';
+    position:absolute; left:0; top: 7px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--grad);
+  }
+  @media (max-width: 700px){
+    .gagne-grid{ grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ---------- RSE ---------- */
+  .rse-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    margin-top: 12px;
+  }
+  .rse-card{
+    background: var(--paper);
+    padding: 26px 26px;
+  }
+  .rse-card h3{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .rse-card p{
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  @media (max-width: 700px){
+    .rse-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- COMPARATIF ---------- */
+  .compare{
+    margin-top: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .compare table{ width:100%; border-collapse: collapse; }
+  .compare th, .compare td{
+    text-align:left;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .compare thead th{
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 400;
+    background: var(--paper-tint);
+  }
+  .compare thead th.hi{ color: var(--ink); font-weight: 700; }
+  .compare td:first-child{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .compare td{ color: var(--ink-dim); }
+  .compare td.hi{
+    color: var(--ink);
+    font-weight: 600;
+    background: linear-gradient(120deg, rgba(107,134,201,0.07), rgba(95,182,182,0.07) 50%, rgba(140,127,196,0.07));
+  }
+  .compare tr:last-child td{ border-bottom: none; }
+  .compare-note{
+    margin-top: 28px;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 60ch;
+  }
+  @media (max-width: 700px){
+    .compare{ overflow-x: auto; }
+    .compare table{ min-width: 560px; }
+  }
+
+  /* ---------- DEMARCHE ---------- */
+  .demarche-list{ display:flex; flex-direction:column; border-top: 1px solid var(--line); }
+  .demarche-item{
+    display:grid;
+    grid-template-columns: 90px 1fr;
+    gap: 28px;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .demarche-num{
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    padding-top: 4px;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .demarche-item h3{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .demarche-item p{ color: var(--ink-dim); max-width: 58ch; }
+
+  /* ---------- SEUILS TABLE ---------- */
+  .seuils{ margin-top: 56px; border: 1px solid var(--line); border-radius: 8px; overflow:hidden; }
+  table{ width:100%; border-collapse: collapse; }
+  th, td{ text-align:left; padding: 14px 18px; font-size: 0.9rem; border-bottom: 1px solid var(--line); }
+  th{
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 400;
+    background: var(--paper-tint);
+  }
+  td.num{ font-family: var(--mono); font-weight: 700; background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  tr:last-child td{ border-bottom: none; }
+
+  /* ---------- PILOTE ---------- */
+  .pilote-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+  .pilote-card{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 24px rgba(108,120,196,0.06);
+  }
+  .pilote-card h3{ font-family: var(--display); font-size:1.1rem; margin-bottom:14px; color: var(--ink); }
+  .pilote-card ul{ list-style:none; display:flex; flex-direction:column; gap:14px; margin-top: 4px; }
+  .pilote-card li{ font-size: 0.92rem; color: var(--ink-dim); padding-left: 20px; position: relative; }
+  .pilote-card li::before{
+    content: '';
+    position:absolute; left:0; top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--grad);
+  }
+  .pilote-counter{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display:inline-block;
+  }
+
+  /* ---------- CONTACT CARD ---------- */
+  .contact-card{
+    margin-top: 20px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px 30px;
+    background: var(--paper);
+  }
+  .contact-card h3{
+    font-family: var(--display);
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .contact-row{ display:flex; gap: 40px; flex-wrap: wrap; }
+  .contact-item{
+    display:flex; flex-direction:column; gap:4px;
+    text-decoration:none;
+  }
+  .contact-item .contact-label{
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .contact-item .contact-value{
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: color .2s;
+  }
+  .contact-item:hover .contact-value{ color: var(--grad-violet); }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background: var(--paper-tint-2); padding: 56px 0 36px; border-top: 1px solid var(--line); }
+  .footer-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap: 32px; margin-bottom: 36px; align-items:center; }
+  .footer-brand{ display:flex; align-items:center; gap:10px; }
+  .footer-brand img{ width: auto; height: 56px; border-radius: 8px; }
+  .footer-brand span{ font-family: var(--display); font-size: 1.05rem; color: var(--ink); }
+  .footer-links{ display:flex; gap:28px; list-style:none; }
+  .footer-links a{ font-size: 0.86rem; text-decoration:none; color: var(--ink-dim); }
+  .footer-links a:hover{ color: var(--grad-violet); }
+  .footer-bottom{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .gauge-wrap{ order:-1; }
+    .pilier-grid{ grid-template-columns: 1fr 1fr; }
+    .pilote-grid{ grid-template-columns: 1fr; }
+    nav ul{ display:none; }
+  }
+  @media (max-width: 560px){
+    .pilier-grid{ grid-template-columns: 1fr; }
+    .demarche-item{ grid-template-columns: 1fr; gap: 6px; }
+    section{ padding: 60px 0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    #needle{ transition: none; }
+  }
+</style>
+<style>
+  .legal-wrap{ max-width: 760px; margin: 0 auto; padding: 70px 28px 100px; }
+  .legal-wrap h1{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 2.1rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .legal-updated{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-bottom: 44px;
+  }
+  .legal-wrap h2{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin: 34px 0 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .legal-wrap h2:first-of-type{ border-top: none; padding-top: 0; }
+  .legal-wrap p{
+    font-size: 0.95rem;
+    color: var(--ink-dim);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .legal-wrap ul{ margin: 0 0 14px 20px; }
+  .legal-wrap li{
+    font-size: 0.95rem;
+    color: var(--ink-dim);
+    line-height: 1.65;
+    margin-bottom: 6px;
+  }
+  .legal-wrap a{ color: var(--grad-violet); text-decoration: underline; }
+  .legal-table{ width:100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 0.86rem; }
+  .legal-table th, .legal-table td{ text-align:left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .legal-table th{ font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); background: var(--paper-tint); font-weight: 400; }
+  .legal-table td{ color: var(--ink-dim); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo-group" href="index.html" style="text-decoration:none;">
+      <img src="logo.png" alt="Logo Label MHB">
+      <div class="logo-word">Label <span class="grad-text">MHB</span></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html#barometre">Le Baromètre</a></li>
+        <li><a href="index.html#demarche">La démarche</a></li>
+        <li><a href="index.html#comparatif">Comparatif</a></li>
+        <li><a href="index.html#pilote">Programme de lancement</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="legal-wrap">
+    <h1>Conditions générales de vente</h1>
+    <div class="legal-updated">My Human Business / Label MHB — Version 1.0 — Juillet 2026</div>
+
+    <h2>Article 1 — Objet et champ d'application</h2>
+    <p>Les présentes conditions générales de vente (ci-après les « CGV ») ont pour objet de définir les conditions dans lesquelles HEP Collective commercialise, sous la marque <strong>My Human Business / Label MHB</strong>, des prestations professionnelles liées au Baromètre Humain, au Label MHB et aux accompagnements associés, auprès de clients professionnels.</p>
+    <p>Les présentes CGV s'appliquent à toute vente de prestation conclue avec une entreprise, une association, une collectivité, un indépendant ou, plus généralement, tout client agissant dans le cadre de son activité professionnelle. Elles constituent le socle unique de la relation commerciale, sous réserve des stipulations particulières figurant dans un devis, une proposition commerciale, un bon de commande, un contrat-cadre, un règlement du Label MHB ou tout autre document contractuel accepté entre les parties.</p>
+    <p>Toute commande, signature de devis, validation écrite par e-mail, émission d'un bon pour accord ou commencement d'exécution emporte acceptation pleine et entière des présentes CGV, sauf conditions particulières expressément acceptées par écrit par HEP Collective.</p>
+    <p>Les présentes CGV ne s'appliquent pas aux consommateurs au sens du Code de la consommation. Les prestations MHB sont destinées à des relations entre professionnels.</p>
+
+    <h2>Article 2 — Identification du prestataire</h2>
+    <p>Le prestataire est Vanessa HUSSON, exerçant sous l'entité HEP Collective, entreprise individuelle immatriculée sous le SIREN 103 565 560, domiciliée à Vaison-la-Romaine (84110), France.</p>
+    <p>Nom commercial et marque exploitée pour les présentes prestations : My Human Business / Label MHB.</p>
+    <p>Contact : <a href="mailto:contact@hepcollective.fr">contact@hepcollective.fr</a>.</p>
+    <p>Le site de présentation du dispositif est accessible à l'adresse <a href="https://myhumanbiz.com" target="_blank" rel="noopener">https://myhumanbiz.com</a>.</p>
+
+    <h2>Article 3 — Documents contractuels et ordre de priorité</h2>
+    <p>La relation contractuelle peut être encadrée par plusieurs documents, notamment : devis, proposition commerciale, cahier de cadrage, bon de commande, règlement du Label MHB, calendrier de déploiement, politique de confidentialité, annexe de sous-traitance de données, et les présentes CGV.</p>
+    <p>En cas de contradiction entre plusieurs documents, l'ordre de priorité suivant s'applique, sauf stipulation contraire expresse :</p>
+    <ul>
+      <li>Le contrat ou devis signé et ses annexes techniques ;</li>
+      <li>Le règlement du Label MHB ou toute annexe spécifique au dispositif ;</li>
+      <li>Les présentes CGV ;</li>
+      <li>Tout autre document commercial ou informatif.</li>
+    </ul>
+    <p>Les brochures, présentations, maquettes, pages de site, propositions non signées ou supports de communication n'ont qu'une valeur indicative, sauf mention contraire écrite.</p>
+
+    <h2>Article 4 — Description des prestations MHB</h2>
+    <p>Les prestations proposées sous la marque My Human Business / Label MHB peuvent notamment comprendre :</p>
+    <ul>
+      <li>le cadrage du dispositif et la préparation du déploiement ;</li>
+      <li>la mise à disposition, l'organisation ou la coordination du Baromètre Humain ;</li>
+      <li>la collecte et l'analyse des réponses selon la méthodologie MHB ;</li>
+      <li>la restitution des résultats, rapports, synthèses, préconisations et échanges associés ;</li>
+      <li>l'examen de l'éligibilité au Label MHB et, le cas échéant, son attribution ;</li>
+      <li>l'accompagnement post-Baromètre, le suivi, le renouvellement, le contrôle, la suspension ou le retrait éventuel du Label ;</li>
+      <li>toute prestation complémentaire expressément prévue au devis.</li>
+    </ul>
+    <p>La description précise des livrables, du périmètre, des délais, des interlocuteurs, des prérequis côté client et du niveau d'accompagnement figure dans le devis ou le document contractuel applicable.</p>
+    <p>Sauf stipulation contraire, les prestations MHB constituent des prestations intellectuelles et méthodologiques. Elles ne sauraient être assimilées à une certification publique, à un label d'État, à une norme réglementaire, à un audit légal ou à une garantie de conformité générale de l'entreprise cliente.</p>
+
+    <h2>Article 5 — Commande et formation du contrat</h2>
+    <p>Toute demande du client peut donner lieu à l'émission d'un devis, d'une proposition commerciale ou d'un contrat. Le contrat est réputé formé à la date de la première des occurrences suivantes :</p>
+    <ul>
+      <li>signature du devis ou du contrat ;</li>
+      <li>émission d'un bon de commande conforme ;</li>
+      <li>acceptation écrite expresse par e-mail ;</li>
+      <li>versement d'un acompte ;</li>
+      <li>début d'exécution des prestations à la demande ou avec l'accord du client.</li>
+    </ul>
+    <p>Le client reconnaît avoir reçu, avant la conclusion du contrat, les informations utiles relatives à la nature des prestations, à leur périmètre, à leur prix ou à leur mode de détermination, et aux principales conditions d'exécution.</p>
+    <p>HEP Collective se réserve le droit de refuser une commande ou de ne pas donner suite à une demande notamment en cas d'absence d'informations suffisantes, de conflit d'intérêts, d'indisponibilité, d'incompatibilité avec la méthodologie MHB, d'antécédents d'impayés ou de risque manifeste d'atteinte à l'image ou à l'intégrité du dispositif.</p>
+
+    <h2>Article 6 — Obligations du client</h2>
+    <p>Le client s'engage à coopérer loyalement avec HEP Collective pendant toute la durée de la mission.</p>
+    <p>À ce titre, le client s'engage notamment à :</p>
+    <ul>
+      <li>désigner un interlocuteur compétent et disponible ;</li>
+      <li>transmettre dans les délais les informations, fichiers, accès, documents et validations nécessaires ;</li>
+      <li>informer ses équipes, salariés, collaborateurs ou participants du déroulement du dispositif lorsque cela est nécessaire ;</li>
+      <li>garantir qu'il dispose des droits, bases légales, autorisations ou instructions nécessaires lorsqu'il confie à HEP Collective des données ou des contenus ;</li>
+      <li>ne pas détourner la méthodologie, les rapports, les visuels, les outils ou le Label MHB de leur finalité ;</li>
+      <li>respecter les prérequis techniques, calendaires et organisationnels précisés au devis ;</li>
+      <li>régler les factures à l'échéance convenue.</li>
+    </ul>
+    <p>Le client reste seul responsable de ses décisions internes, de sa communication, de ses politiques RH, de ses obligations légales et réglementaires et, plus généralement, de l'usage qu'il fait des livrables fournis.</p>
+
+    <h2>Article 7 — Rôle des parties sur les données personnelles</h2>
+    <p>Dans le cadre du déploiement du Baromètre Humain et de l'attribution du Label MHB, les documents contractuels peuvent prévoir que l'entreprise cliente agit comme responsable de traitement et que HEP Collective intervient comme sous-traitant pour les traitements relatifs aux salariés, participants ou personnes concernées.</p>
+    <p>Pour ses traitements propres, notamment la gestion des demandes, la contractualisation, la facturation, la relation commerciale et la défense de ses droits, HEP Collective agit comme responsable de traitement.</p>
+    <p>Les modalités détaillées relatives à la protection des données sont précisées dans la <a href="politique-confidentialite.html">politique de confidentialité MHB</a> ainsi que, le cas échéant, dans l'annexe contractuelle de sous-traitance conclue entre les parties.</p>
+
+    <h2>Article 8 — Délais d'exécution</h2>
+    <p>Les délais d'intervention, de restitution ou de remise de livrables sont indiqués à titre prévisionnel, sauf engagement ferme expressément stipulé dans le devis ou le contrat.</p>
+    <p>HEP Collective ne saurait être tenue responsable d'un retard imputable au client, à un tiers, à l'absence de validation, à la transmission tardive d'informations, à une indisponibilité des interlocuteurs, à un incident technique externe ou à un cas de force majeure.</p>
+    <p>Lorsque l'exécution dépend d'une validation du client, d'une fourniture d'éléments ou d'une mobilisation des équipes du client, les échéances sont automatiquement prolongées d'une durée au moins équivalente au retard constaté.</p>
+
+    <h2>Article 9 — Prix</h2>
+    <p>Les prix des prestations sont exprimés en euros et indiqués hors taxes, sauf mention contraire. La TVA et toute taxe applicable sont facturées en sus au taux en vigueur à la date d'exigibilité.</p>
+    <p>Les tarifs applicables sont ceux figurant sur le devis ou le contrat accepté par le client. À défaut de prix forfaitaire, les prestations peuvent être facturées au temps passé, à l'unité, par phase, par population concernée ou selon toute autre modalité indiquée dans les documents contractuels.</p>
+    <p>Sauf indication contraire, les frais exceptionnels demandés par le client et non inclus dans l'offre initiale, tels que déplacements, hébergements, impressions spécifiques, outils tiers, demandes hors périmètre, itérations supplémentaires ou interventions urgentes, peuvent faire l'objet d'une facturation complémentaire après information du client.</p>
+
+    <h2>Article 10 — Facturation et modalités de paiement</h2>
+    <p>Les prestations donnent lieu à facturation selon les modalités prévues au devis : acompte, échéancier, facturation à la commande, en cours de mission, à la remise des livrables ou à toute autre étape convenue.</p>
+    <p>Sauf stipulation particulière, les factures sont payables à trente jours date de facture, par virement bancaire.</p>
+    <p>Aucun escompte n'est accordé pour paiement anticipé, sauf accord écrit contraire.</p>
+    <p>En cas de retard de paiement, des pénalités de retard sont exigibles de plein droit à compter du lendemain de la date d'échéance, sans qu'un rappel soit nécessaire. Le taux des pénalités est égal au taux d'intérêt appliqué par la Banque centrale européenne à son opération de refinancement la plus récente, majoré de 10 points de pourcentage, conformément à l'article L. 441-10 du Code de commerce.</p>
+    <p>En outre, toute somme non réglée à l'échéance entraîne de plein droit l'application d'une indemnité forfaitaire pour frais de recouvrement de 40 euros par facture impayée, conformément aux articles L. 441-10 et D. 441-5 du Code de commerce. Si les frais de recouvrement effectivement exposés sont supérieurs à ce montant, une indemnité complémentaire pourra être réclamée sur justification.</p>
+    <p>En cas d'impayé, HEP Collective pourra en outre suspendre ou reporter toute prestation en cours ou à venir, sans que cette suspension puisse être considérée comme une faute du prestataire.</p>
+
+    <h2>Article 11 — Révision du périmètre et prestations complémentaires</h2>
+    <p>Toute demande du client modifiant le périmètre initial, les volumes, le calendrier, les interlocuteurs, la profondeur d'analyse, les livrables, le nombre de sessions, le nombre d'allers-retours ou les conditions de déploiement peut donner lieu à un ajustement du prix, du calendrier et des conditions d'exécution.</p>
+    <p>HEP Collective n'est tenue d'exécuter les demandes complémentaires qu'après accord exprès des parties sur leur principe et, le cas échéant, sur leur coût.</p>
+
+    <h2>Article 12 — Annulation, report et résiliation</h2>
+    <p><strong>12.1 Avant démarrage.</strong> En cas d'annulation par le client après acceptation du devis mais avant le démarrage effectif : l'acompte éventuellement versé reste acquis à HEP Collective à titre d'indemnisation minimale ; si aucun acompte n'a été versé, HEP Collective pourra facturer les travaux préparatoires déjà réalisés, le temps mobilisé et les frais engagés non récupérables.</p>
+    <p><strong>12.2 Report.</strong> En cas de report demandé par le client, HEP Collective fera ses meilleurs efforts pour proposer un nouveau calendrier, sans garantie de disponibilité identique. Les coûts déjà engagés, prestations préparatoires effectuées ou réservations fermes restent dus.</p>
+    <p><strong>12.3 En cours de mission.</strong> En cas d'arrêt anticipé d'une mission pour une cause non imputable à HEP Collective, les prestations déjà exécutées, le temps passé, les étapes engagées et les frais exposés restent dus. Les sommes prévues pour les phases déjà commencées sont intégralement exigibles.</p>
+    <p><strong>12.4 Résiliation pour manquement.</strong> En cas de manquement grave par l'une des parties à ses obligations contractuelles, non réparé dans un délai de quinze jours calendaires suivant mise en demeure écrite, l'autre partie pourra résilier de plein droit tout ou partie du contrat, sans préjudice des dommages et intérêts auxquels elle pourrait prétendre.</p>
+
+    <h2>Article 13 — Dispositif privé Label MHB</h2>
+    <p>Le Label MHB est un dispositif privé délivré exclusivement par HEP Collective dans le cadre de la méthodologie My Human Business. Il ne constitue ni un label d'État, ni une certification réglementaire, ni un agrément délivré par une autorité publique.</p>
+    <p>L'obtention, le maintien, le renouvellement, la suspension ou le retrait du Label MHB dépendent notamment :</p>
+    <ul>
+      <li>du respect des critères et engagements prévus dans les documents MHB applicables ;</li>
+      <li>de la sincérité, de la qualité et de l'exploitabilité des données recueillies ;</li>
+      <li>du respect par le client des obligations de coopération, de communication et de paiement ;</li>
+      <li>du maintien des conditions ayant conduit à l'attribution initiale.</li>
+    </ul>
+    <p>HEP Collective conserve un pouvoir d'appréciation sur l'attribution, le refus, la suspension, le non-renouvellement ou le retrait du Label MHB, dans les conditions prévues par les documents contractuels et le règlement du dispositif.</p>
+    <p>Le client s'interdit toute présentation trompeuse du Label MHB, de son niveau, de sa portée ou de sa valeur. Toute communication publique utilisant la marque, le logo ou les éléments d'identité du Label doit rester conforme aux règles transmises par HEP Collective.</p>
+
+    <h2>Article 14 — Confidentialité</h2>
+    <p>Chaque partie s'engage à conserver strictement confidentiels, pendant la durée de la relation contractuelle et pendant cinq ans après sa fin, les informations, documents, méthodes, échanges, résultats, données, rapports, accès, secrets d'affaires et informations stratégiques de l'autre partie, sauf obligation légale ou judiciaire contraire.</p>
+    <p>HEP Collective maintient la confidentialité des résultats détaillés du Baromètre Humain et ne rend public, le cas échéant, que le niveau de Label obtenu, dans les conditions prévues contractuellement et avec l'accord de l'entreprise concernée lorsque cet accord est requis.</p>
+    <p>Ne sont pas considérées comme confidentielles les informations déjà publiques, déjà connues de manière licite avant leur communication, obtenues régulièrement d'un tiers non tenu à confidentialité, ou développées indépendamment.</p>
+
+    <h2>Article 15 — Propriété intellectuelle</h2>
+    <p>La marque My Human Business, le Label MHB, le logo Label MHB, le Baromètre Humain, la méthodologie HEP ainsi que l'ensemble des contenus originaux, grilles, outils, supports, questionnaires, rapports-types, méthodes, visuels, signes distinctifs et documents remis ou mis à disposition par HEP Collective restent sa propriété exclusive ou celle de leurs titulaires respectifs, sauf mention contraire écrite.</p>
+    <p>Les présentes CGV n'emportent aucun transfert de propriété intellectuelle au profit du client.</p>
+    <p>Sous réserve du paiement complet des sommes dues, HEP Collective concède au client un droit d'usage interne, non exclusif, non cessible et limité aux besoins de la relation contractuelle, sur les livrables qui lui sont remis, à l'exclusion de toute revente, sous-licence, diffusion à des tiers non autorisés, adaptation substantielle, extraction méthodologique ou réutilisation pour créer un service concurrent.</p>
+    <p>Toute reproduction, représentation, diffusion, adaptation ou utilisation, totale ou partielle, non autorisée, est interdite.</p>
+
+    <h2>Article 16 — Responsabilité</h2>
+    <p>HEP Collective est tenue à une obligation de moyens dans l'exécution de ses prestations.</p>
+    <p>Sauf faute lourde, dol, atteinte aux droits de propriété intellectuelle d'un tiers causée par un élément fourni exclusivement par HEP Collective, ou disposition légale impérative contraire, la responsabilité totale de HEP Collective tous faits générateurs confondus est limitée au montant hors taxes effectivement perçu par HEP Collective au titre de la prestation directement à l'origine du dommage au cours des douze derniers mois.</p>
+    <p>HEP Collective ne pourra être tenue responsable des dommages indirects ou immatériels, notamment perte de chiffre d'affaires, perte de profit, perte de chance, perte d'image, perte de données imputable au client, perte d'opportunité, préjudice commercial, perturbation d'activité ou conséquences d'une décision prise par le client sur la base des livrables remis.</p>
+    <p>HEP Collective ne garantit ni un niveau déterminé de performance économique, sociale ou RH, ni l'absence de contestation interne, ni l'obtention automatique d'un label, d'un renouvellement ou d'un bénéfice commercial particulier.</p>
+
+    <h2>Article 17 — Force majeure</h2>
+    <p>Aucune partie ne pourra être tenue responsable d'un manquement résultant d'un événement échappant raisonnablement à son contrôle et empêchant l'exécution normale de ses obligations, tel qu'un cas de force majeure habituellement retenu par la jurisprudence française, une panne généralisée, un incident réseau majeur, une cyberattaque d'ampleur, une indisponibilité durable d'un prestataire essentiel, une décision administrative, une catastrophe naturelle, un conflit social externe, une épidémie ou toute autre circonstance imprévisible et irrésistible.</p>
+    <p>La partie empêchée en informe l'autre dans les meilleurs délais. Les obligations sont suspendues pendant la durée de l'empêchement. Si l'empêchement se prolonge au-delà de soixante jours calendaires, chacune des parties pourra mettre fin à la mission concernée sans indemnité supplémentaire, sous réserve du paiement des prestations déjà exécutées.</p>
+
+    <h2>Article 18 — Références commerciales et communication</h2>
+    <p>Sauf opposition écrite motivée du client, HEP Collective peut citer la dénomination sociale, le nom commercial ou le logo du client comme référence commerciale, de manière sobre, sur ses supports de communication, sans divulguer d'informations confidentielles ni de résultats détaillés.</p>
+    <p>Toute communication publique relative au niveau de Label obtenu, aux résultats du Baromètre ou à l'affichage de profils KeenLi de salariés doit respecter les conditions prévues dans les documents MHB applicables et, le cas échéant, les consentements requis.</p>
+
+    <h2>Article 19 — Médiation, droit applicable et juridiction compétente</h2>
+    <p>Les présentes CGV sont soumises au droit français.</p>
+    <p>Les parties s'engagent à rechercher une solution amiable préalablement à tout contentieux.</p>
+    <p>À défaut d'accord amiable dans un délai raisonnable, tout litige relatif à la validité, l'interprétation, l'exécution, la résiliation ou les suites des présentes CGV et des contrats qui en découlent relèvera de la compétence exclusive du Tribunal judiciaire d'Avignon, y compris en cas de pluralité de défendeurs, d'appel en garantie, de référé ou de procédure d'urgence, sous réserve des règles d'ordre public applicables.</p>
+
+    <h2>Article 20 — Dispositions finales</h2>
+    <p>Le fait pour HEP Collective de ne pas se prévaloir à un moment donné d'une stipulation des présentes CGV ne saurait être interprété comme une renonciation à s'en prévaloir ultérieurement.</p>
+    <p>Si une clause des présentes CGV devait être déclarée nulle, inapplicable ou non écrite, les autres stipulations conserveraient leur plein effet.</p>
+    <p>La version applicable des CGV est celle remise ou mise à disposition du client au jour de la conclusion du contrat. Les CGV peuvent être mises à jour pour les contrats futurs, sans effet rétroactif sur les contrats déjà conclus sauf accord exprès des parties.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Logo Label MHB">
+        <span>Label <em style="font-style:italic;" class="grad-text">MHB</em></span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html#barometre">Le Baromètre</a></li>
+        <li><a href="index.html#demarche">La démarche</a></li>
+        <li><a href="index.html#comparatif">Comparatif</a></li>
+        <li><a href="index.html#pilote">Programme de lancement</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+        <li><a href="cgv-mhb.html">CGV</a></li>
+        <li><a href="mailto:contact@hepcollective.fr">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>My Human Business — HEP Collective</span>
+      <span>Vaison-la-Romaine</span>
+    </div>
+    <div class="footer-bottom" style="margin-top:8px;">
+      <span>Label privé My Human Business, propriété de HEP Collective (marque déposée). Ne constitue ni un label d'État ni une certification réglementaire.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
