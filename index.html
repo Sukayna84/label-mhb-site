@@ -3,25 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Label MHB — My Human Business</title>
-<meta name="description" content="Label MHB : la certification qualité humaine pour TPE/PME. Diagnostic, accompagnement, labellisation.">
+<title>Label MHB - My Human Business</title>
+<meta name="description" content="Label MHB : la certification du climat humain et de la Qualité de Vie et des Conditions de Travail (QVCT) pour TPE/PME. Diagnostic, accompagnement, labellisation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#2A2A30;
-    --ink-dim: rgba(42,42,48,0.64);
-    --ink-faint: rgba(42,42,48,0.42);
+    --ink:#1C1B24;
+    --ink-dim: rgba(28,27,36,0.68);
+    --ink-faint: rgba(28,27,36,0.46);
     --paper:#FFFFFF;
-    --paper-tint:#F6F4FB;
+    --paper-tint:#F6F5FA;
     --paper-tint-2:#F0EEF9;
-    --grad-blue:#6B86C9;
-    --grad-teal:#5FB6B6;
-    --grad-violet:#8C7FC4;
-    --grad: linear-gradient(120deg, var(--grad-blue) 0%, var(--grad-teal) 50%, var(--grad-violet) 100%);
-    --line: rgba(42,42,48,0.10);
-    --line-soft: rgba(42,42,48,0.06);
+    --icon-neutral: #A69C93;
+    --icon-neutral-dark: #C9C4DE;
+    --dark-bg: #14121F;
+    --dark-text-secondary: #C9C4DE;
+    --grad-blue:#74148B;
+    --grad-teal:#4AB8AE;
+    --grad-violet:#74148B;
+    --grad: linear-gradient(120deg, var(--grad-blue) 0%, var(--grad-teal) 100%);
+    --line: rgba(28,27,36,0.10);
+    --line-soft: rgba(28,27,36,0.06);
     --display: 'Fraunces', serif;
     --body: 'Work Sans', sans-serif;
     --mono: 'Space Mono', monospace;
@@ -47,17 +51,20 @@
     font-size: 0.72rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--grad-violet);
   }
   .grad-text{
+    color: var(--grad-violet);
+    font-style: italic;
+  }
+  /* Dégradé Keenli réservé au seul repère de marque (wordmark), jamais ailleurs */
+  .logo-word .grad-text,
+  .footer-brand .grad-text{
     background: var(--grad);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-style: italic;
+    font-style: normal;
   }
 
   /* ---------- NAV ---------- */
@@ -89,9 +96,31 @@
     transition: opacity .2s;
   }
   nav a:hover{ opacity:1; }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:36px; height:36px;
+    background:none; border:none; cursor:pointer;
+    padding:0;
+    flex-shrink:0;
+  }
+  .nav-toggle span{
+    display:block;
+    width:100%;
+    height:2px;
+    background: var(--ink);
+    border-radius:2px;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle.is-open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 
   /* ---------- HERO ---------- */
   .hero{ padding: 88px 0 64px; }
+  .hero .wrap{ max-width: 1400px; }
   .hero-grid{
     display:grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -101,8 +130,8 @@
   .hero h1{
     font-family: var(--display);
     font-weight: 500;
-    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
-    line-height: 1.08;
+    font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+    line-height: 1.15;
     letter-spacing: -0.01em;
     margin: 18px 0 22px;
     color: var(--ink);
@@ -137,11 +166,11 @@
     transition: transform .15s ease, box-shadow .2s ease;
   }
   .btn-primary{
-    background: var(--grad);
+    background: #5B4B95;
     color: #fff;
-    box-shadow: 0 6px 18px rgba(108,120,196,0.28);
+    box-shadow: 0 6px 18px rgba(91,75,149,0.28);
   }
-  .btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(108,120,196,0.36); }
+  .btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(91,75,149,0.36); background: linear-gradient(120deg, #5B4B95, #4AB8AE); }
   .btn-ghost{
     position: relative;
     color: var(--ink);
@@ -187,6 +216,89 @@
     transition: transform 1.6s cubic-bezier(.2,.9,.25,1);
   }
   .gauge-wrap.in-view #needle{ transform: rotate(36deg); }
+
+  /* ---------- CITATION FONDATRICE ---------- */
+  .quote-founder{ padding: 56px 0 64px; text-align: center; }
+  .quote-founder-photo{
+    width: clamp(96px, 12vw, 140px);
+    height: clamp(96px, 12vw, 140px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--grad-violet);
+    margin: 0 auto 24px;
+  }
+  .quote-founder blockquote{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 68ch;
+    margin: 0 auto;
+    text-align: center;
+    border: none;
+  }
+  .quote-founder .script-word{
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.35em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .quote-founder cite{
+    display:block;
+    margin-top: 22px;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  /* ---------- CHIFFRES CLÉS EXTERNES ---------- */
+  .stats-external-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .stat-card-ext{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-card-ext .stat-card-num{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 1;
+    display:block;
+    margin-bottom: 10px;
+  }
+  .stat-card-ext .stat-card-label{
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    line-height: 1.45;
+    display:block;
+  }
+  .stat-card-ext .stat-card-source{
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    display:block;
+    margin-top: 10px;
+  }
+  @media (max-width: 700px){
+    .stats-external-grid{ grid-template-columns: 1fr; }
+  }
 
   /* ---------- SECTIONS ---------- */
   section{ padding: 84px 0; }
@@ -250,10 +362,7 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     display:block; margin-bottom:6px;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--grad-violet);
   }
 
   /* ---------- QUI Y GAGNE ---------- */
@@ -285,7 +394,7 @@
     position:absolute; left:0; top: 7px;
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: var(--grad);
+    background: #A69C93;
   }
   @media (max-width: 700px){
     .gagne-grid{ grid-template-columns: 1fr; gap: 32px; }
@@ -355,7 +464,7 @@
   .compare td.hi{
     color: var(--ink);
     font-weight: 600;
-    background: linear-gradient(120deg, rgba(107,134,201,0.07), rgba(95,182,182,0.07) 50%, rgba(140,127,196,0.07));
+    background: rgba(116,20,139,0.05);
   }
   .compare tr:last-child td{ border-bottom: none; }
   .compare-note{
@@ -367,9 +476,18 @@
     color: var(--ink);
     max-width: 60ch;
   }
+  .compare-scroll-hint{ display:none; }
   @media (max-width: 700px){
-    .compare{ overflow-x: auto; }
-    .compare table{ min-width: 560px; }
+    .compare-scroll-hint{
+      display:block;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--grad-violet);
+      margin: 12px 0 10px;
+    }
+    .compare{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .compare table{ min-width: 480px; }
+    .compare th, .compare td{ padding: 12px 14px; font-size: 0.82rem; }
   }
 
   /* ---------- DEMARCHE ---------- */
@@ -385,10 +503,7 @@
     font-family: var(--mono);
     font-size: 0.85rem;
     padding-top: 4px;
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--grad-violet);
   }
   .demarche-item h3{
     font-family: var(--display);
@@ -412,7 +527,7 @@
     font-weight: 400;
     background: var(--paper-tint);
   }
-  td.num{ font-family: var(--mono); font-weight: 700; background: var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  td.num{ font-family: var(--mono); font-weight: 700; color: var(--grad-violet); }
   tr:last-child td{ border-bottom: none; }
 
   /* ---------- PILOTE ---------- */
@@ -422,7 +537,7 @@
     border: 1px solid var(--line);
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 4px 24px rgba(108,120,196,0.06);
+    box-shadow: 0 4px 24px rgba(116,20,139,0.06);
   }
   .pilote-card h3{ font-family: var(--display); font-size:1.1rem; margin-bottom:14px; color: var(--ink); }
   .pilote-card ul{ list-style:none; display:flex; flex-direction:column; gap:14px; margin-top: 4px; }
@@ -432,7 +547,7 @@
     position:absolute; left:0; top: 6px;
     width: 9px; height: 9px;
     border-radius: 50%;
-    background: var(--grad);
+    background: #A69C93;
   }
   .pilote-counter{
     font-family: var(--mono);
@@ -442,12 +557,18 @@
     margin-top: 22px;
     padding-top: 18px;
     border-top: 1px solid var(--line);
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--grad-violet);
     display:inline-block;
   }
+
+  /* ---------- CTA FINAL (fond sombre, cf. charte couleur) ---------- */
+  .pilote-card-dark{
+    background: var(--dark-bg);
+    border-color: var(--dark-bg);
+  }
+  .pilote-card-dark h3{ color: #fff; }
+  .pilote-card-dark li{ color: var(--dark-text-secondary); }
+  .pilote-card-dark li::before{ background: var(--icon-neutral-dark); }
 
   /* ---------- CONTACT CARD ---------- */
   .contact-card{
@@ -506,7 +627,20 @@
     .gauge-wrap{ order:-1; }
     .pilier-grid{ grid-template-columns: 1fr 1fr; }
     .pilote-grid{ grid-template-columns: 1fr; }
-    nav ul{ display:none; }
+    .nav-toggle{ display:flex; }
+    nav ul{
+      display:none;
+      position:absolute;
+      top:100%; left:0; right:0;
+      flex-direction:column;
+      gap:0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 8px 28px 16px;
+    }
+    nav ul.is-open{ display:flex; }
+    nav ul li{ padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
+    nav ul li:last-child{ border-bottom:none; }
   }
   @media (max-width: 560px){
     .pilier-grid{ grid-template-columns: 1fr; }
@@ -527,7 +661,10 @@
       <img src="logo.png" alt="Logo Label MHB">
       <div class="logo-word">Label <span class="grad-text">MHB</span></div>
     </a>
-    <nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
       <ul>
         <li><a href="#barometre">Le Baromètre</a></li>
         <li><a href="#demarche">La démarche</a></li>
@@ -543,10 +680,10 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">My Human Business — Label MHB</p>
+        <p class="eyebrow">My Human Business - Label MHB</p>
         <h1>Le climat humain de votre entreprise n'est pas une intuition.<br><span class="grad-text">C'est une donnée.</span></h1>
-        <p class="lead">Le Label MHB mesure la qualité humaine réelle d'une TPE ou d'une PME : confiance, charge de travail, reconnaissance, sécurité psychologique. Pas une note de façade. Un diagnostic, une démarche, une certification.</p>
-        <p class="tagline">La qualité de vie au travail ne se déclare pas. <span class="grad-text">Elle se mesure.</span></p>
+        <p class="lead">Le Label MHB mesure la qualité humaine réelle d'une organisation : confiance, charge de travail, reconnaissance, sécurité psychologique, etc. Pas une note de façade. Un diagnostic, une démarche, une certification.</p>
+        <p class="tagline">La qualité de vie au travail ne se déclare pas.<br><span class="grad-text">Elle se mesure.</span></p>
         <div class="cta-row">
           <a href="#demarche" class="btn btn-primary">Voir la démarche</a>
           <a href="#pilote" class="btn btn-ghost">Rejoindre le programme</a>
@@ -576,6 +713,16 @@
     </div>
   </section>
 
+  <section class="quote-founder">
+    <div class="wrap">
+      <img src="vanessa.jpg" alt="Vanessa Husson, fondatrice HEP Collective" class="quote-founder-photo">
+      <blockquote>
+        Pour un système gagnant-gagnant : les salariés brillent par leur <span class="script-word">singularité</span>, les entreprises brillent par leurs salariés.
+        <cite>Vanessa Husson, fondatrice HEP Collective</cite>
+      </blockquote>
+    </div>
+  </section>
+
   <section id="barometre" class="tint">
     <div class="wrap">
       <p class="eyebrow">Le référentiel</p>
@@ -596,7 +743,7 @@
 
       <div class="pilier-13">
         <strong>+1 pilier bonus, hors score : la vigilance</strong>
-        Un 13e pilier, avec ses propres questions, distinct des 12 piliers notés. S'il révèle un risque de pénibilité, l'entreprise est orientée vers un ergonome — sans que cela ne bloque jamais l'obtention du label.
+        Un 13e pilier, avec ses propres questions, distinct des 12 piliers notés. S'il révèle un risque de pénibilité, l'entreprise est orientée vers un ergonome, sans que cela ne bloque jamais l'obtention du label.
       </div>
     </div>
   </section>
@@ -611,7 +758,7 @@
           <div class="demarche-num">01 / 03</div>
           <div>
             <h3>Diagnostic</h3>
-            <p>Passation du Baromètre Humain auprès des salariés. Le taux de participation requis dépend de la taille de l'entreprise — voir le détail ci-dessous. Trois salariés minimum pour engager la démarche.</p>
+            <p>Passation du Baromètre Humain auprès des salariés. Le taux de participation requis dépend de la taille de l'entreprise (voir le détail ci-dessous). Trois salariés minimum pour engager la démarche.</p>
           </div>
         </div>
         <div class="demarche-item">
@@ -653,7 +800,7 @@
         <div class="gagne-col">
           <h3>Pour le dirigeant</h3>
           <ul class="gagne-list">
-            <li>Un rapport mensuel, données individuelles et collectives — pas un instantané une fois par an.</li>
+            <li>Un rapport mensuel, données individuelles et collectives, pas un instantané une fois par an.</li>
             <li>Un profil Keenli dirigeant, pour être reconnu aussi de son côté.</li>
             <li>Une marque employeur appuyée sur des faits, pas un slogan.</li>
             <li>Un indicateur pénibilité qui oriente vers un ergonome partenaire, jamais vers un dossier classé.</li>
@@ -665,7 +812,7 @@
           <h3>Pour le salarié</h3>
           <ul class="gagne-list">
             <li>Anonymat garanti sur les réponses à l'audit : aucune réponse individuelle remontée à la direction.</li>
-            <li>Un profil Keenli personnel — la reconnaissance dépasse le diagnostic annuel.</li>
+            <li>Un profil Keenli personnel : la reconnaissance dépasse le diagnostic annuel.</li>
             <li>Une reconnaissance sans note ni classement, qui construit l'estime de soi plutôt que la comparaison.</li>
             <li>Une mise en avant par l'employeur, visible sur son propre profil.</li>
           </ul>
@@ -698,11 +845,36 @@
         </div>
         <div class="rse-card">
           <h3>Marque employeur renforcée</h3>
-          <p>Un repère sûr, pas une promesse en l'air : le label signale un endroit où la qualité de vie au travail est réelle, pas seulement déclarée — pour vos salariés comme pour ceux qui envisagent de vous rejoindre.</p>
+          <p>Un repère sûr, pas une promesse en l'air : le label signale un endroit où la qualité de vie au travail est réelle, pas seulement déclarée, pour vos salariés comme pour ceux qui envisagent de vous rejoindre.</p>
         </div>
         <div class="rse-card">
           <h3>Prévention des risques</h3>
           <p>L'indicateur pénibilité anticipe une partie du DUERP et oriente vers un ergonome avant que la situation ne se dégrade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chiffres-cles">
+    <div class="wrap">
+      <p class="eyebrow">Ce que dit la recherche</p>
+      <h2>La reconnaissance n'est pas un supplément d'âme. C'est un levier mesuré.</h2>
+      <!-- Sources à revérifier avant publication (issues du business plan de juin) -->
+      <div class="stats-external-grid">
+        <div class="stat-card-ext">
+          <span class="stat-card-num grad-text">+31%</span>
+          <span class="stat-card-label">de productivité chez les salariés reconnus</span>
+          <span class="stat-card-source">Harvard / MIT</span>
+        </div>
+        <div class="stat-card-ext">
+          <span class="stat-card-num grad-text">26x</span>
+          <span class="stat-card-label">plus de chances de rester dans l'entreprise</span>
+          <span class="stat-card-source">O.C. Tanner, 2026</span>
+        </div>
+        <div class="stat-card-ext">
+          <span class="stat-card-num grad-text">48%</span>
+          <span class="stat-card-label">seulement des salariés de petites entreprises sont engagés</span>
+          <span class="stat-card-source">Malakoff Humanis, 2024</span>
         </div>
       </div>
     </div>
@@ -713,6 +885,7 @@
       <p class="eyebrow">Pourquoi un référentiel différent</p>
       <h2>Pourquoi le Label MHB plutôt qu'un autre ?</h2>
 
+      <p class="compare-scroll-hint">👉 Fais glisser le tableau pour le voir en entier</p>
       <div class="compare">
         <table>
           <thead>
@@ -722,12 +895,12 @@
             <tr><td>Conçu pour</td><td>Plutôt grands comptes</td><td class="hi">TPE/PME, dès 3 salariés</td></tr>
             <tr><td>Questions / piliers</td><td>18 questions</td><td class="hi">48 questions / 12 piliers</td></tr>
             <tr><td>Participation requise</td><td>50% des salariés</td><td class="hi">De 70% à 100% selon l'effectif</td></tr>
-            <tr><td>Classement public</td><td>Oui — compétition</td><td class="hi">Non — visibilité sans compétition</td></tr>
+            <tr><td>Classement public</td><td>Oui (compétition)</td><td class="hi">Non (visibilité sans compétition)</td></tr>
             <tr><td>Accompagnement</td><td>Aucun</td><td class="hi">Suivi mensuel + restitution HEP Collective</td></tr>
-            <tr><td>Rapport mensuel</td><td>Non</td><td class="hi">Oui — données individuelles et collectives</td></tr>
-            <tr><td>Profil salarié individuel</td><td>Non</td><td class="hi">Oui — chaque salarié a son profil Keenli</td></tr>
+            <tr><td>Rapport mensuel</td><td>Non</td><td class="hi">Oui (données individuelles et collectives)</td></tr>
+            <tr><td>Profil salarié individuel</td><td>Non</td><td class="hi">Oui (chaque salarié a son profil Keenli)</td></tr>
             <tr><td>Outil de veille interne</td><td>Non</td><td class="hi">Oui</td></tr>
-            <tr><td>Pénibilité</td><td>Non</td><td class="hi">Oui — indicateur dédié avec ergonome partenaire</td></tr>
+            <tr><td>Pénibilité</td><td>Non</td><td class="hi">Oui (indicateur dédié avec ergonome partenaire)</td></tr>
             <tr><td>Affichage / communication</td><td>Basique</td><td class="hi">Site, offres d'emploi à venir, supports comm à venir</td></tr>
           </tbody>
         </table>
@@ -768,7 +941,7 @@
         </div>
       </div>
 
-      <div class="pilote-card" style="margin-top:28px;">
+      <div class="pilote-card pilote-card-dark" style="margin-top:28px;">
         <h3>Pour qui</h3>
         <ul>
           <li>Des dirigeants de TPE/PME qui veulent objectiver ce qu'ils sentent déjà sur le terrain.</li>
@@ -809,7 +982,7 @@
         <li><a href="#demarche">La démarche</a></li>
         <li><a href="#comparatif">Comparatif</a></li>
         <li><a href="#pilote">Programme de lancement</a></li>
-        <!-- LIEN KEENLI : à ajouter ici une fois validé -->
+        <li><a href="https://keenli.fr/label-mhb" target="_blank" rel="noopener noreferrer">Découvrir Keenli</a></li>
         <li><a href="mentions-legales.html">Mentions légales</a></li>
         <li><a href="politique-confidentialite.html">Confidentialité</a></li>
         <li><a href="cgv-mhb.html">CGV</a></li>
@@ -817,7 +990,7 @@
       </ul>
     </div>
     <div class="footer-bottom">
-      <span>My Human Business — HEP Collective</span>
+      <span>My Human Business - HEP Collective</span>
       <span>Vaison-la-Romaine</span>
     </div>
     <div class="footer-bottom" style="margin-top:8px;">
@@ -837,6 +1010,22 @@
     });
   }, { threshold: 0.4 });
   observer.observe(gaugeWrap);
+
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  const navList = mainNav.querySelector('ul');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navList.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navList.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navList.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
 </script>
 
 </body>
