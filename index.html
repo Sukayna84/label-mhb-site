@@ -47,10 +47,10 @@
   }
   .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 28px; }
   /* ---------- LARGEURS PAR SECTION ---------- */
-  #barometre .wrap{ max-width: 1400px; }
+  #barometre .wrap{ max-width: 1100px; }
   #qui-y-gagne .wrap{ max-width: 1100px; }
   #chiffres-cles .wrap{ max-width: 1400px; }
-  #comparatif .wrap{ max-width: 1400px; }
+  #comparatif .wrap{ max-width: 1100px; }
   #pilote .wrap{ max-width: 1100px; }
   .eyebrow{
     font-family: var(--mono);
@@ -126,7 +126,7 @@
 
   /* ---------- HERO ---------- */
   .hero{ padding: 88px 0 64px; }
-  .hero .wrap{ max-width: 1150px; }
+  .hero .wrap{ max-width: 1400px; }
   .hero-grid{
     display:grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -349,12 +349,10 @@
     text-transform: uppercase;
     color: var(--ink-faint);
   }
-  .stat-row-time{
-    padding-top: 20px;
-    border-top: none;
-    gap: 40px;
+  .stat-num-sm{ font-size: 1.7rem; }
+  @media (max-width: 700px){
+    .stat-row{ gap: 28px; }
   }
-  .stat-row-time .stat-num{ font-size: 1.7rem; }
   .pilier-13{
     margin-top: 36px;
     border-left: 3px solid;
@@ -742,11 +740,8 @@
         <div class="stat"><span class="stat-num grad-text">48</span><span class="stat-label">questions</span></div>
         <div class="stat"><span class="stat-num grad-text">12</span><span class="stat-label">piliers</span></div>
         <div class="stat"><span class="stat-num grad-text">1</span><span class="stat-label">score, par entreprise</span></div>
-      </div>
-
-      <div class="stat-row stat-row-time">
-        <div class="stat"><span class="stat-num grad-text">10 min</span><span class="stat-label">par salarié</span></div>
-        <div class="stat"><span class="stat-num grad-text">1h30</span><span class="stat-label">pour le dirigeant</span></div>
+        <div class="stat"><span class="stat-num grad-text stat-num-sm">10 min</span><span class="stat-label">par salarié</span></div>
+        <div class="stat"><span class="stat-num grad-text stat-num-sm">1h30</span><span class="stat-label">pour le dirigeant</span></div>
       </div>
 
 
