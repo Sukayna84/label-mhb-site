@@ -1097,17 +1097,31 @@
 
 <script>
   // ---------- Calculette tarifs Label MHB ----------
-  // Formule validée le 30 juillet 2026 : 1 340 € + 55 €/salarié jusqu'à 20, puis 70 €/salarié au-delà, plancher 1 590 €.
+  // Grille dégressive validée (feuille "Tarification" du modèle financier) :
+  // 1 340 € + 55 €/salarié de 1 à 20, + 70 €/salarié de 21 à 50, + 45 €/salarié de 51 à 100,
+  // + 20 €/salarié de 101 à 250, + 10 €/salarié de 251 à 500. Plancher annoncé 1 590 €.
   function calculerPrixLabel(n) {
-    const base = 1340 + 55 * Math.min(n, 20) + 70 * Math.max(n - 20, 0);
+    let base;
+    if (n <= 20) {
+      base = 1340 + 55 * n;
+    } else if (n <= 50) {
+      base = 2440 + 70 * (n - 20);
+    } else if (n <= 100) {
+      base = 4540 + 45 * (n - 50);
+    } else if (n <= 250) {
+      base = 6790 + 20 * (n - 100);
+    } else {
+      base = 9790 + 10 * (n - 250);
+    }
     return Math.max(1590, Math.round(base));
   }
-  // Abonnement KeenLi Collectif, obligatoire avec le Label : 3,49 €/salarié jusqu'à 50, 2,49 € de 51 à 100, 1,00 € de 101 à 250, 0,60 € de 251 à 500.
+  // Abonnement KeenLi Collectif, obligatoire avec le Label : 3,49 €/salarié jusqu'à 50, 2,49 € de 51 à 100,
+  // 1,49 € de 101 à 250, puis 1,00 € au-delà de 250 (plancher permanent, y compris pour les devis au-delà de 500).
   function calculerKeenli(n) {
     const t1 = 3.49 * Math.min(n, 50);
     const t2 = 2.49 * Math.max(Math.min(n, 100) - 50, 0);
-    const t3 = 1.00 * Math.max(Math.min(n, 250) - 100, 0);
-    const t4 = 0.60 * Math.max(Math.min(n, 500) - 250, 0);
+    const t3 = 1.49 * Math.max(Math.min(n, 250) - 100, 0);
+    const t4 = 1.00 * Math.max(Math.min(n, 500) - 250, 0);
     return t1 + t2 + t3 + t4;
   }
   function formatEuroEntier(x) {
