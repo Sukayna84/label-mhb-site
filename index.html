@@ -820,6 +820,11 @@
         </div>
       </div>
 
+      <div class="pilier-13">
+        <strong>Labellisé en moins de deux mois</strong>
+        Audit sous 15 jours, restitution sous 4 semaines.
+      </div>
+
       <div class="seuils">
         <table>
           <thead><tr><th>Taille de l'entreprise</th><th>Participation requise</th></tr></thead>
@@ -892,7 +897,7 @@
         </div>
         <div class="rse-card">
           <h3>Prévention des risques</h3>
-          <p>L'indicateur pénibilité anticipe une partie du DUERP et oriente vers un ergonome avant que la situation ne se dégrade.</p>
+          <p>L'indicateur pénibilité repère un signal avant qu'il ne s'aggrave, et oriente vers un ergonome — un éclairage utile pour nourrir votre propre DUERP, qui reste sous votre responsabilité.</p>
         </div>
       </div>
     </div>
@@ -976,9 +981,13 @@
             <span class="tarif-calc-line-label">Abonnement KeenLi Collectif (obligatoire avec le Label)</span>
             <span class="tarif-calc-line-value" id="tarifKeenli">-</span>
           </div>
+          <div class="tarif-calc-line">
+            <span class="tarif-calc-line-label">Renouvellement, dès l'année 2</span>
+            <span class="tarif-calc-line-value" id="tarifRenouvellement">-</span>
+          </div>
         </div>
         <p class="tarif-calc-note" id="tarifNote">Tapez votre effectif pour voir le tarif. À partir de 3 salariés, jusqu'à 500. Au-delà, sur devis.</p>
-        <p class="tarif-calc-note">Tarif indicatif, calculé sur votre effectif. Pour le détail exact adapté à votre situation, prenez rendez-vous.</p>
+        <p class="tarif-calc-note">Tarif indicatif 2026, calculé sur votre effectif, susceptible d'évoluer. Pour le détail exact adapté à votre situation, prenez rendez-vous.</p>
         <div class="tarif-calc-cta">
           <a href="https://calendly.com/vanessa-husson-pro/nouvelle-reunion" target="_blank" rel="noopener" class="btn btn-ghost">Prendre rendez-vous</a>
         </div>
@@ -1114,6 +1123,22 @@
     }
     return Math.max(1590, Math.round(base));
   }
+  // Renouvellement du Label, dès l'année 2 (feuille "Tarification") :
+  // Prix Label année 1 moins 200 € de remise de fidélité jusqu'à 50 salariés, puis grille propre au renouvellement :
+  // + 35 €/salarié de 51 à 100, + 15 €/salarié de 101 à 250, + 7 €/salarié de 251 à 500.
+  function calculerPrixRenouvellement(n) {
+    let base;
+    if (n <= 50) {
+      base = calculerPrixLabel(n) - 200;
+    } else if (n <= 100) {
+      base = 4340 + 35 * (n - 50);
+    } else if (n <= 250) {
+      base = 6090 + 15 * (n - 100);
+    } else {
+      base = 8340 + 7 * (n - 250);
+    }
+    return Math.round(base);
+  }
   // Abonnement KeenLi Collectif, obligatoire avec le Label : 3,49 €/salarié jusqu'à 50, 2,49 € de 51 à 100,
   // 1,49 € de 101 à 250, puis 1,00 € au-delà de 250 (plancher permanent, y compris pour les devis au-delà de 500).
   function calculerKeenli(n) {
@@ -1133,6 +1158,7 @@
   const tarifInput = document.getElementById('tarifEffectif');
   const tarifLabelEl = document.getElementById('tarifLabel');
   const tarifKeenliEl = document.getElementById('tarifKeenli');
+  const tarifRenouvellementEl = document.getElementById('tarifRenouvellement');
   const tarifNoteEl = document.getElementById('tarifNote');
 
   if (tarifInput) {
@@ -1143,12 +1169,14 @@
       if (!tarifInput.value || isNaN(n)) {
         tarifLabelEl.textContent = '-';
         tarifKeenliEl.textContent = '-';
+        tarifRenouvellementEl.textContent = '-';
         tarifNoteEl.textContent = "Tapez votre effectif pour voir le tarif. À partir de 3 salariés, jusqu'à 500. Au-delà, sur devis.";
         return;
       }
       if (n < 3) {
         tarifLabelEl.textContent = '-';
         tarifKeenliEl.textContent = '-';
+        tarifRenouvellementEl.textContent = '-';
         tarifNoteEl.textContent = "Le Label MHB s'adresse aux entreprises à partir de 3 salariés.";
         tarifNoteEl.classList.add('is-warning');
         return;
@@ -1156,6 +1184,7 @@
       if (n > 500) {
         tarifLabelEl.textContent = '-';
         tarifKeenliEl.textContent = '-';
+        tarifRenouvellementEl.textContent = '-';
         tarifNoteEl.textContent = "Au-delà de 500 salariés, tarif sur devis. Contactez-nous directement.";
         tarifNoteEl.classList.add('is-warning');
         return;
@@ -1163,6 +1192,7 @@
 
       tarifLabelEl.textContent = formatEuroEntier(calculerPrixLabel(n)) + ' HT';
       tarifKeenliEl.textContent = formatEuroMensuel(calculerKeenli(n));
+      tarifRenouvellementEl.textContent = formatEuroEntier(calculerPrixRenouvellement(n)) + ' HT';
 
       tarifNoteEl.textContent = n >= 10
         ? "Votre rapport pourra détailler les résultats par service (à partir de 10 répondants, sous réserve d'au moins 5 par service)."
