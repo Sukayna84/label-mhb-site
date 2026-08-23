@@ -655,7 +655,7 @@
   .tarif-calc-line-total .tarif-calc-line-label{ font-weight: 600; color: var(--ink); }
   .tarif-calc-line-total .tarif-calc-line-value{ font-size: 1.6rem; color: var(--grad-violet); }
   .tarif-calc-note{ margin-top: 18px; font-size: 0.82rem; color: var(--ink-faint); }
-  .tarif-calc-note.is-warning{ color: var(--grad-violet); }
+  .tarif-calc-note.is-warning{ color: var(--grad-violet); font-weight: 700; font-size: 0.95rem; }
 
   /* ---------- FOOTER ---------- */
   footer{ background: var(--paper-tint-2); padding: 56px 0 36px; border-top: 1px solid var(--line); }
@@ -1219,6 +1219,15 @@
     tarifTotalAn2El.textContent = '-';
   }
 
+  function tarifSurDevis() {
+    tarifLabelEl.textContent = 'Sur devis';
+    tarifKeenliEl.textContent = 'Sur devis';
+    tarifKeenliAnnuelEl.textContent = 'Sur devis';
+    tarifTotalAn1El.textContent = 'Sur devis';
+    tarifRenouvellementEl.textContent = 'Sur devis';
+    tarifTotalAn2El.textContent = 'Sur devis';
+  }
+
   if (tarifInput) {
     tarifInput.addEventListener('input', () => {
       const n = parseInt(tarifInput.value, 10);
@@ -1236,8 +1245,8 @@
         return;
       }
       if (n > 100) {
-        tarifReset();
-        tarifNoteEl.textContent = "Au-delà de 100 salariés, tarif sur devis. Contactez-nous directement.";
+        tarifSurDevis();
+        tarifNoteEl.textContent = "Au-delà de 100 salariés : tarif sur devis. Contactez-nous directement.";
         tarifNoteEl.classList.add('is-warning');
         return;
       }
