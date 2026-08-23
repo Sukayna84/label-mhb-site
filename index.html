@@ -1123,9 +1123,11 @@
 
 <script>
   // ---------- Calculette tarifs Label MHB ----------
-  // Grille consolidée du 23 août 2026, validée avec Vanessa poste par poste
-  // (voir COM_grille_tarifaire_consolidee_2026-08-23.md). Remplace l'ancienne
-  // grille (plancher 1 590 €, paliers jusqu'à 500 salariés), devenue obsolète.
+  // Grille consolidée du 23 août 2026, validée avec Vanessa poste par poste,
+  // puis lissee le meme jour entre 5 et 20 salaries pour rester plus accessible
+  // sur cette tranche cible (voir COM_grille_tarifaire_consolidee_2026-08-23.md).
+  // Remplace l'ancienne grille (plancher 1 590 €, paliers jusqu'à 500 salariés),
+  // devenue obsolète. Les paliers 5, 50 et 100 salaries restent des ancres fixes.
 
   // Barometre Humain, achat initial (sans Label) :
   // plancher 590 € de 3 à 5 salariés, + 40 €/salarié jusqu'à 10, + 30 €/salarié jusqu'à 20,
@@ -1139,34 +1141,39 @@
   }
 
   // Barometre Humain, renouvellement (client Label qui renouvelle) :
-  // même plancher 590 € jusqu'à 5, remise fixe de 200 € de 6 à 50 salariés,
-  // plus de remise au-delà de 50 (prix plein, compensé par la remise sur le Label renouvellement).
+  // même plancher 590 € jusqu'à 5, remise progressive (0 a 5, -100 a 10, -200 a 20,
+  // stable a -200 jusqu'a 50), plus de remise au-dela de 50 (prix plein, identique
+  // a l'achat initial). Grille lissee du 23 aout 2026.
   function calculerBarometreRenouvellement(n) {
-    if (n <= 5) return calculerBarometre(n);
-    if (n <= 50) return calculerBarometre(n) - 200;
+    if (n <= 5) return 590;
+    if (n <= 10) return 590 + 20 * (n - 5);
+    if (n <= 20) return 690 + 20 * (n - 10);
+    if (n <= 50) return 890 + 30 * (n - 20);
     return calculerBarometre(n);
   }
 
   // Label MHB, année 1 :
-  // plancher 400 € de 3 à 5, + 60 €/salarié jusqu'à 10, + 30 €/salarié jusqu'à 20,
-  // + 15 €/salarié jusqu'à 50, + 7,50 €/salarié jusqu'à 100.
+  // plancher 400 € de 3 à 5, + 40 €/salarié jusqu'à 10, + 30 €/salarié jusqu'à 20,
+  // + 18,33 €/salarié jusqu'à 50 (550€ repartis sur 30 salaries), + 7,50 €/salarié jusqu'à 100.
+  // Grille lissee du 23 aout 2026 : plus accessible entre 5 et 20 salaries, 50 et 100 inchanges.
   function calculerPrixLabel(n) {
     if (n <= 5) return 400;
-    if (n <= 10) return 400 + 60 * (n - 5);
-    if (n <= 20) return 700 + 30 * (n - 10);
-    if (n <= 50) return 1000 + 15 * (n - 20);
+    if (n <= 10) return 400 + 40 * (n - 5);
+    if (n <= 20) return 600 + 30 * (n - 10);
+    if (n <= 50) return 900 + (550 / 30) * (n - 20);
     return 1450 + 7.5 * (n - 50);
   }
 
   // Label MHB, renouvellement (année 2 et suivantes) :
-  // 250 € à 3 salariés, + 25 €/salarié jusqu'à 5, + 60 €/salarié jusqu'à 10,
-  // + 30 €/salarié jusqu'à 20, + 10 €/salarié jusqu'à 50, + 5 €/salarié jusqu'à 100.
-  // Même prix chaque année, pas de dégressivité supplémentaire après la première reconduction.
+  // 250 € à 3 salariés, + 25 €/salarié jusqu'à 5, + 40 €/salarié jusqu'à 10,
+  // + 30 €/salarié jusqu'à 20, + 13,33 €/salarié jusqu'à 50 (400€ repartis sur 30 salaries),
+  // + 5 €/salarié jusqu'à 100. Même prix chaque année, pas de dégressivité supplémentaire
+  // après la première reconduction. Grille lissee du 23 aout 2026.
   function calculerPrixRenouvellement(n) {
     if (n <= 5) return 250 + 25 * (n - 3);
-    if (n <= 10) return 300 + 60 * (n - 5);
-    if (n <= 20) return 600 + 30 * (n - 10);
-    if (n <= 50) return 900 + 10 * (n - 20);
+    if (n <= 10) return 300 + 40 * (n - 5);
+    if (n <= 20) return 500 + 30 * (n - 10);
+    if (n <= 50) return 800 + (400 / 30) * (n - 20);
     return 1200 + 5 * (n - 50);
   }
 
