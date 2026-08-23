@@ -651,6 +651,9 @@
   .tarif-calc-line{ display:flex; justify-content:space-between; align-items:baseline; gap: 16px; }
   .tarif-calc-line-label{ font-size: 0.92rem; color: var(--ink-dim); }
   .tarif-calc-line-value{ font-family: var(--display); font-size: 1.4rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .tarif-calc-line-total{ border-top: 1px dashed var(--line); padding-top: 14px; margin-top: 2px; }
+  .tarif-calc-line-total .tarif-calc-line-label{ font-weight: 600; color: var(--ink); }
+  .tarif-calc-line-total .tarif-calc-line-value{ font-size: 1.6rem; color: var(--grad-violet); }
   .tarif-calc-note{ margin-top: 18px; font-size: 0.82rem; color: var(--ink-faint); }
   .tarif-calc-note.is-warning{ color: var(--grad-violet); }
 
@@ -966,12 +969,12 @@
   <section id="tarifs">
     <div class="wrap">
       <p class="eyebrow">Tarifs</p>
-      <h2>À partir de 1 590 € HT</h2>
+      <h2>À partir de 1 090 € HT</h2>
       <p class="section-intro">Le prix dépend uniquement de votre effectif. Indiquez le nombre de salariés pour obtenir le tarif exact du Label MHB, abonnement KeenLi Collectif inclus.</p>
 
       <div class="tarif-calc">
         <label for="tarifEffectif" class="tarif-calc-label">Nombre de salariés</label>
-        <input type="number" id="tarifEffectif" class="tarif-calc-input" min="3" max="500" step="1" placeholder="Ex : 12" inputmode="numeric">
+        <input type="number" id="tarifEffectif" class="tarif-calc-input" min="3" max="100" step="1" placeholder="Ex : 12" inputmode="numeric">
 
         <div class="tarif-calc-result">
           <div class="tarif-calc-line">
@@ -979,16 +982,29 @@
             <span class="tarif-calc-line-value" id="tarifLabel">-</span>
           </div>
           <div class="tarif-calc-line">
-            <span class="tarif-calc-line-label">Abonnement KeenLi Collectif (obligatoire avec le Label)</span>
+            <span class="tarif-calc-line-label">Abonnement KeenLi Collectif (obligatoire avec le Label), mensuel</span>
             <span class="tarif-calc-line-value" id="tarifKeenli">-</span>
           </div>
           <div class="tarif-calc-line">
-            <span class="tarif-calc-line-label">Renouvellement, dès l'année 2</span>
+            <span class="tarif-calc-line-label">Abonnement KeenLi Collectif, annuel**</span>
+            <span class="tarif-calc-line-value" id="tarifKeenliAnnuel">-</span>
+          </div>
+          <div class="tarif-calc-line tarif-calc-line-total">
+            <span class="tarif-calc-line-label">TOTAL année 1</span>
+            <span class="tarif-calc-line-value" id="tarifTotalAn1">-</span>
+          </div>
+          <div class="tarif-calc-line">
+            <span class="tarif-calc-line-label">Renouvellement, dès l'année 2*</span>
             <span class="tarif-calc-line-value" id="tarifRenouvellement">-</span>
           </div>
+          <div class="tarif-calc-line tarif-calc-line-total">
+            <span class="tarif-calc-line-label">TOTAL année 2</span>
+            <span class="tarif-calc-line-value" id="tarifTotalAn2">-</span>
+          </div>
         </div>
-        <p class="tarif-calc-note" id="tarifNote">Tapez votre effectif pour voir le tarif. À partir de 3 salariés, jusqu'à 500. Au-delà, sur devis.</p>
-        <p class="tarif-calc-note">* Comprend l'audit (Baromètre) et le Label. Les -30% du programme fondateurs (entreprises pilotes) portent uniquement sur la part Label, hors Baromètre seul et abonnement KeenLi.</p>
+        <p class="tarif-calc-note" id="tarifNote">Tapez votre effectif pour voir le tarif. À partir de 3 salariés, jusqu'à 100. Au-delà, sur devis.</p>
+        <p class="tarif-calc-note">* Comprend l'audit (Baromètre, jusqu'à 5 services analysés) et le Label. Au-delà de 50 salariés, chaque service supplémentaire au-delà de 5 ajoute 200€ au tarif du Baromètre, non compris dans les montants ci-dessus, d'où le « à partir de ». Les -30% du programme fondateurs (entreprises pilotes) portent uniquement sur la part Label : le Baromètre seul et l'abonnement KeenLi ne sont jamais concernés par cette remise, y compris dans les lignes ci-dessus.</p>
+        <p class="tarif-calc-note">** Tarif annuel, à régler en une fois, alternative au paiement mensuel de la ligne du dessus.</p>
         <p class="tarif-calc-note">Tarif indicatif 2026, calculé sur votre effectif, susceptible d'évoluer. Pour le détail exact adapté à votre situation, prenez rendez-vous.</p>
         <div class="tarif-calc-cta">
           <a href="https://calendly.com/vanessa-husson-pro/nouvelle-reunion" target="_blank" rel="noopener" class="btn btn-ghost">Prendre rendez-vous</a>
@@ -1107,48 +1123,76 @@
 
 <script>
   // ---------- Calculette tarifs Label MHB ----------
-  // Grille dégressive validée (feuille "Tarification" du modèle financier) :
-  // 1 340 € + 55 €/salarié de 1 à 20, + 70 €/salarié de 21 à 50, + 45 €/salarié de 51 à 100,
-  // + 20 €/salarié de 101 à 250, + 10 €/salarié de 251 à 500. Plancher annoncé 1 590 €.
+  // Grille consolidée du 23 août 2026, validée avec Vanessa poste par poste
+  // (voir COM_grille_tarifaire_consolidee_2026-08-23.md). Remplace l'ancienne
+  // grille (plancher 1 590 €, paliers jusqu'à 500 salariés), devenue obsolète.
+
+  // Barometre Humain, achat initial (sans Label) :
+  // plancher 590 € de 3 à 5 salariés, + 40 €/salarié jusqu'à 10, + 30 €/salarié jusqu'à 20,
+  // + 30 €/salarié jusqu'à 50. Au-delà de 50, base à 1 990 € (+ 200 €/service au-delà de 5, hors calculette).
+  function calculerBarometre(n) {
+    if (n <= 5) return 590;
+    if (n <= 10) return 590 + 40 * (n - 5);
+    if (n <= 20) return 790 + 30 * (n - 10);
+    if (n <= 50) return 1090 + 30 * (n - 20);
+    return 1990;
+  }
+
+  // Barometre Humain, renouvellement (client Label qui renouvelle) :
+  // même plancher 590 € jusqu'à 5, remise fixe de 200 € de 6 à 50 salariés,
+  // plus de remise au-delà de 50 (prix plein, compensé par la remise sur le Label renouvellement).
+  function calculerBarometreRenouvellement(n) {
+    if (n <= 5) return calculerBarometre(n);
+    if (n <= 50) return calculerBarometre(n) - 200;
+    return calculerBarometre(n);
+  }
+
+  // Label MHB, année 1 :
+  // plancher 400 € de 3 à 5, + 60 €/salarié jusqu'à 10, + 30 €/salarié jusqu'à 20,
+  // + 15 €/salarié jusqu'à 50, + 7,50 €/salarié jusqu'à 100.
   function calculerPrixLabel(n) {
-    let base;
-    if (n <= 20) {
-      base = 1340 + 55 * n;
-    } else if (n <= 50) {
-      base = 2440 + 70 * (n - 20);
-    } else if (n <= 100) {
-      base = 4540 + 45 * (n - 50);
-    } else if (n <= 250) {
-      base = 6790 + 20 * (n - 100);
-    } else {
-      base = 9790 + 10 * (n - 250);
-    }
-    return Math.max(1590, Math.round(base));
+    if (n <= 5) return 400;
+    if (n <= 10) return 400 + 60 * (n - 5);
+    if (n <= 20) return 700 + 30 * (n - 10);
+    if (n <= 50) return 1000 + 15 * (n - 20);
+    return 1450 + 7.5 * (n - 50);
   }
-  // Renouvellement du Label, dès l'année 2 (feuille "Tarification") :
-  // Prix Label année 1 moins 200 € de remise de fidélité jusqu'à 50 salariés, puis grille propre au renouvellement :
-  // + 35 €/salarié de 51 à 100, + 15 €/salarié de 101 à 250, + 7 €/salarié de 251 à 500.
+
+  // Label MHB, renouvellement (année 2 et suivantes) :
+  // 250 € à 3 salariés, + 25 €/salarié jusqu'à 5, + 60 €/salarié jusqu'à 10,
+  // + 30 €/salarié jusqu'à 20, + 10 €/salarié jusqu'à 50, + 5 €/salarié jusqu'à 100.
+  // Même prix chaque année, pas de dégressivité supplémentaire après la première reconduction.
   function calculerPrixRenouvellement(n) {
-    let base;
-    if (n <= 50) {
-      base = calculerPrixLabel(n) - 200;
-    } else if (n <= 100) {
-      base = 4340 + 35 * (n - 50);
-    } else if (n <= 250) {
-      base = 6090 + 15 * (n - 100);
-    } else {
-      base = 8340 + 7 * (n - 250);
-    }
-    return Math.round(base);
+    if (n <= 5) return 250 + 25 * (n - 3);
+    if (n <= 10) return 300 + 60 * (n - 5);
+    if (n <= 20) return 600 + 30 * (n - 10);
+    if (n <= 50) return 900 + 10 * (n - 20);
+    return 1200 + 5 * (n - 50);
   }
-  // Abonnement KeenLi Collectif, obligatoire avec le Label : 3,49 €/salarié jusqu'à 50, 2,49 € de 51 à 100,
-  // 1,49 € de 101 à 250, puis 1,00 € au-delà de 250 (plancher permanent, y compris pour les devis au-delà de 500).
+
+  // Abonnement KeenLi Collectif, mensuel : taux par tête multiplié par l'effectif entier
+  // (le taux change par tranche, pas un simple ajout marginal). 3,29 € jusqu'à 10, 2,79 € jusqu'à 20,
+  // 2,30 € jusqu'à 30, 1,79 € jusqu'à 50, 1,30 € au-delà de 50.
   function calculerKeenli(n) {
-    const t1 = 3.49 * Math.min(n, 50);
-    const t2 = 2.49 * Math.max(Math.min(n, 100) - 50, 0);
-    const t3 = 1.49 * Math.max(Math.min(n, 250) - 100, 0);
-    const t4 = 1.00 * Math.max(Math.min(n, 500) - 250, 0);
-    return t1 + t2 + t3 + t4;
+    if (n <= 10) return 3.29 * n;
+    if (n <= 20) return 2.79 * n;
+    if (n <= 30) return 2.30 * n;
+    if (n <= 50) return 1.79 * n;
+    return 1.30 * n;
+  }
+
+  // Abonnement KeenLi Collectif, équivalent annuel : calculé sur l'ANCIEN taux de base
+  // (2,99 / 2,49 / 2 / 1,49 / 1 €), pas sur le taux mensuel ci-dessus, puis arrondi
+  // à la dizaine d'euros inférieure. Décorrélé du mensuel pour créer un vrai écart
+  // et inciter au paiement annuel.
+  function calculerKeenliAnnuel(n) {
+    let base;
+    if (n <= 10) base = 2.99 * n;
+    else if (n <= 20) base = 2.49 * n;
+    else if (n <= 30) base = 2 * n;
+    else if (n <= 50) base = 1.49 * n;
+    else base = 1 * n;
+    return Math.floor((base * 12) / 10) * 10;
   }
   function formatEuroEntier(x) {
     return Math.round(x).toLocaleString('fr-FR') + ' €';
@@ -1160,8 +1204,20 @@
   const tarifInput = document.getElementById('tarifEffectif');
   const tarifLabelEl = document.getElementById('tarifLabel');
   const tarifKeenliEl = document.getElementById('tarifKeenli');
+  const tarifKeenliAnnuelEl = document.getElementById('tarifKeenliAnnuel');
+  const tarifTotalAn1El = document.getElementById('tarifTotalAn1');
   const tarifRenouvellementEl = document.getElementById('tarifRenouvellement');
+  const tarifTotalAn2El = document.getElementById('tarifTotalAn2');
   const tarifNoteEl = document.getElementById('tarifNote');
+
+  function tarifReset() {
+    tarifLabelEl.textContent = '-';
+    tarifKeenliEl.textContent = '-';
+    tarifKeenliAnnuelEl.textContent = '-';
+    tarifTotalAn1El.textContent = '-';
+    tarifRenouvellementEl.textContent = '-';
+    tarifTotalAn2El.textContent = '-';
+  }
 
   if (tarifInput) {
     tarifInput.addEventListener('input', () => {
@@ -1169,32 +1225,33 @@
       tarifNoteEl.classList.remove('is-warning');
 
       if (!tarifInput.value || isNaN(n)) {
-        tarifLabelEl.textContent = '-';
-        tarifKeenliEl.textContent = '-';
-        tarifRenouvellementEl.textContent = '-';
-        tarifNoteEl.textContent = "Tapez votre effectif pour voir le tarif. À partir de 3 salariés, jusqu'à 500. Au-delà, sur devis.";
+        tarifReset();
+        tarifNoteEl.textContent = "Tapez votre effectif pour voir le tarif. À partir de 3 salariés, jusqu'à 100. Au-delà, sur devis.";
         return;
       }
       if (n < 3) {
-        tarifLabelEl.textContent = '-';
-        tarifKeenliEl.textContent = '-';
-        tarifRenouvellementEl.textContent = '-';
+        tarifReset();
         tarifNoteEl.textContent = "Le Label MHB s'adresse aux entreprises à partir de 3 salariés.";
         tarifNoteEl.classList.add('is-warning');
         return;
       }
-      if (n > 500) {
-        tarifLabelEl.textContent = '-';
-        tarifKeenliEl.textContent = '-';
-        tarifRenouvellementEl.textContent = '-';
-        tarifNoteEl.textContent = "Au-delà de 500 salariés, tarif sur devis. Contactez-nous directement.";
+      if (n > 100) {
+        tarifReset();
+        tarifNoteEl.textContent = "Au-delà de 100 salariés, tarif sur devis. Contactez-nous directement.";
         tarifNoteEl.classList.add('is-warning');
         return;
       }
 
-      tarifLabelEl.textContent = formatEuroEntier(calculerPrixLabel(n)) + ' HT';
+      const labelAn1 = calculerBarometre(n) + calculerPrixLabel(n);
+      const renouvellement = calculerBarometreRenouvellement(n) + calculerPrixRenouvellement(n);
+      const keenliAnnuel = calculerKeenliAnnuel(n);
+
+      tarifLabelEl.textContent = 'à partir de ' + formatEuroEntier(labelAn1) + ' HT';
       tarifKeenliEl.textContent = formatEuroMensuel(calculerKeenli(n));
-      tarifRenouvellementEl.textContent = formatEuroEntier(calculerPrixRenouvellement(n)) + ' HT';
+      tarifKeenliAnnuelEl.textContent = formatEuroEntier(keenliAnnuel) + ' HT';
+      tarifTotalAn1El.textContent = 'à partir de ' + formatEuroEntier(labelAn1 + keenliAnnuel) + ' HT';
+      tarifRenouvellementEl.textContent = 'à partir de ' + formatEuroEntier(renouvellement) + ' HT';
+      tarifTotalAn2El.textContent = 'à partir de ' + formatEuroEntier(renouvellement + keenliAnnuel) + ' HT';
 
       tarifNoteEl.textContent = n >= 10
         ? "Votre rapport pourra détailler les résultats par service (à partir de 10 répondants, sous réserve d'au moins 5 par service)."
