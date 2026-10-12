@@ -215,6 +215,7 @@
   }
   .niveau-nom{ font-weight:700; font-size:0.95rem; color: var(--ink); }
   .niveau-borne{ font-family: var(--mono); font-size:0.8rem; color: var(--ink-faint); }
+  .niveau-detail{ font-size:0.75rem; color: var(--ink-faint); }
   .niveau-label{ background:#EDE7F6; border-color:#D9CCEA; }
   .niveau-label .niveau-nom{ color:#5B4B95; }
   .niveau-excellence{ background:#E3F4F1; border-color:#BFE3DC; }
@@ -748,6 +749,7 @@
         <div class="niveau niveau-temporaire">
           <span class="niveau-nom">Label MHB Temporaire</span>
           <span class="niveau-borne">60 à 74</span>
+          <span class="niveau-detail">Statut privé, le temps d'un accompagnement</span>
         </div>
         <div class="niveau niveau-label">
           <span class="niveau-nom">Label MHB</span>
@@ -757,8 +759,8 @@
           <span class="niveau-nom">Label MHB Excellence</span>
           <span class="niveau-borne">85 et plus</span>
         </div>
-        <p class="niveaux-note">Aucun label en dessous de 60. Seuils révisés une fois par an sur la distribution observée des scores.</p>
-        <p class="niveaux-note">Le score sur 100 reste privé, communiqué à la seule direction. Seule la distinction obtenue est publique. Aucun classement entre entreprises.</p>
+        <p class="niveaux-note">Moins de 60 : Label non attribué, mais un accompagnement est possible. Nous ne refusons personne : chaque entreprise peut avancer, à son rythme. Seuils révisés une fois par an sur la distribution observée des scores.</p>
+        <p class="niveaux-note">Le score sur 100 reste privé, communiqué à la seule direction. Seule la mention obtenue peut être publiée, et uniquement avec l'accord de l'entreprise. Aucun classement entre entreprises.</p>
       </div>
     </div>
   </section>
@@ -819,7 +821,7 @@
           <div class="demarche-num">03 / 03</div>
           <div>
             <h3>Labellisation</h3>
-            <p>Le score obtenu détermine l'attribution du Label MHB, pour douze mois, renouvelable. Le tarif est identique que le label soit attribué ou non : vous achetez un diagnostic, le label en est le résultat possible.</p>
+            <p>Le score obtenu détermine l'attribution du Label MHB, pour douze mois, renouvelé chaque année par une nouvelle mesure, jamais automatiquement. Le tarif est identique que le label soit attribué ou non : vous achetez un diagnostic, le label en est le résultat possible.</p>
           </div>
         </div>
       </div>
@@ -857,6 +859,7 @@
             <li>Une marque employeur appuyée sur des faits, pas un slogan.</li>
             <li>Un indicateur pénibilité qui oriente vers un ergonome partenaire, jamais vers un dossier classé.</li>
             <li>Une restitution concrète, jamais un questionnaire qui reste sans suite.</li>
+            <li>Un engagement de non-discrimination, notamment à partir des informations que les salariés choisissent de partager.</li>
             <li>Et bien plus encore.</li>
           </ul>
         </div>
@@ -901,7 +904,7 @@
         </div>
         <div class="rse-card">
           <h3>Prévention des risques</h3>
-          <p>L'indicateur pénibilité repère un signal avant qu'il ne s'aggrave, et oriente vers un ergonome — un éclairage utile pour nourrir votre propre DUERP, qui reste sous votre responsabilité.</p>
+          <p>L'indicateur pénibilité repère un signal avant qu'il ne s'aggrave, et oriente vers un ergonome, un éclairage utile pour nourrir votre propre DUERP, qui reste sous votre responsabilité.</p>
         </div>
       </div>
     </div>
@@ -1003,7 +1006,7 @@
           </div>
         </div>
         <p class="tarif-calc-note" id="tarifNote">Tapez votre effectif pour voir le tarif. À partir de 3 salariés, jusqu'à 100. Au-delà, sur devis.</p>
-        <p class="tarif-calc-note">* Comprend l'audit (Baromètre, jusqu'à 5 services analysés) et le Label. Au-delà de 50 salariés, chaque service supplémentaire au-delà de 5 ajoute 200€ au tarif du Baromètre, non compris dans les montants ci-dessus, d'où le « à partir de ». Les -30% du programme fondateurs (entreprises pilotes) portent uniquement sur la part Label : le Baromètre seul et l'abonnement KeenLi ne sont jamais concernés par cette remise, y compris dans les lignes ci-dessus.</p>
+        <p class="tarif-calc-note">* Comprend l'audit (Baromètre, jusqu'à 5 services analysés) et le Label. Au-delà de 50 salariés, chaque service supplémentaire au-delà de 5 ajoute 200€ au tarif du Baromètre, non compris dans les montants ci-dessus, d'où le « à partir de ». Les -30 % des entreprises pilotes portent sur le Baromètre et le Label de la première année. Ils ne sont pas appliqués dans les lignes ci-dessus. L'abonnement KeenLi Collectif n'est pas remisé : il est offert pendant 6 mois aux pilotes.</p>
         <p class="tarif-calc-note">** Tarif annuel, à régler en une fois, alternative au paiement mensuel de la ligne du dessus.</p>
         <p class="tarif-calc-note">Tarif indicatif 2026, calculé sur votre effectif, susceptible d'évoluer. Pour le détail exact adapté à votre situation, prenez rendez-vous.</p>
         <div class="tarif-calc-cta">
@@ -1023,11 +1026,12 @@
         <div class="pilote-card">
           <h3>Entreprise pilote</h3>
           <ul>
-            <li>Engagement sur 6 mois, pour tester la démarche au plus près.</li>
+            <li>Engagement sur 1 an, pour construire la démarche au plus près.</li>
             <li>Accompagnement direct et renforcé sur la lecture des résultats.</li>
             <li>Paiement en deux temps : 50% à la signature, 50% après restitution.</li>
             <li>Tarif préférentiel acquis à vie, dès la première labellisation.</li>
-            <li>-30% supplémentaires sur le prix du Label (hors Baromètre seul et abonnement KeenLi), sur les 6 premiers mois.</li>
+            <li>-30 % sur le Baromètre et le Label de la première année.</li>
+            <li>Abonnement KeenLi Collectif offert pendant 6 mois.</li>
           </ul>
           <div class="pilote-counter">5 places</div>
         </div>
@@ -1038,7 +1042,7 @@
             <li>Engagement direct sur 1 an, dès l'entrée dans le programme.</li>
             <li>Même démarche complète : diagnostic, restitution, labellisation.</li>
             <li>Paiement en deux temps : 50% à la signature, 50% après restitution.</li>
-            <li>Tarif préférentiel acquis à vie, dès la première labellisation.</li>
+            <li>Prix du Label gelé pendant 3 ans, sans aucune hausse.</li>
           </ul>
           <div class="pilote-counter">15 places</div>
         </div>
@@ -1086,7 +1090,7 @@
         <li><a href="#comparatif">Comparatif</a></li>
         <li><a href="#tarifs">Tarifs</a></li>
         <li><a href="#pilote">Programme de lancement</a></li>
-        <li><a href="https://keenli.fr/label-mhb" target="_blank" rel="noopener noreferrer">Découvrir Keenli</a></li>
+        <li><a href="https://keenli.app/label-mhb" target="_blank" rel="noopener noreferrer">Découvrir Keenli</a></li>
         <li><a href="mentions-legales.html">Mentions légales</a></li>
         <li><a href="politique-confidentialite.html">Confidentialité</a></li>
         <li><a href="cgv-mhb.html">CGV</a></li>
