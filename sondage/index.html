@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Votre avis en 1 minute · KeenLi & Label MHB</title>
+<meta name="description" content="4 questions, 1 minute, réponses anonymes. Aidez-nous à montrer que le climat social et la reconnaissance au travail comptent vraiment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myhumanbiz.com/sondage/">
+<meta property="og:title" content="Votre avis en 1 minute : le climat social, ça compte ?">
+<meta property="og:description" content="4 questions, réponses anonymes, sans compte. Une initiative KeenLi & Label MHB.">
+<meta property="og:image" content="https://myhumanbiz.com/logo.png">
+<meta name="theme-color" content="#74148B">
+<link rel="icon" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C1B24; --ink-soft:#4A4858; --ink-faint:#7C7A8A;
+    --paper:#FFFFFF; --tint:#F6F5FA; --line:#E3E1EA;
+    --violet:#74148B; --teal:#4AB8AE; --cta:#5B4B95;
+    --grad:linear-gradient(120deg,#74148B,#4AB8AE);
+    --display:'Fraunces',Georgia,serif; --body:'Work Sans',system-ui,sans-serif; --mono:'Space Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--tint);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:560px;margin:0 auto;padding:20px 16px 40px;min-height:100svh;display:flex;flex-direction:column}
+  header{display:flex;align-items:center;justify-content:center;gap:12px;padding:6px 0 14px}
+  header img{height:34px;width:auto}
+  header .sep{width:1px;height:26px;background:var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+  .rule{height:2px;border-radius:2px;background:var(--grad);width:64px;margin:10px auto 0}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 20px;margin-top:18px;box-shadow:0 6px 24px rgba(28,27,36,.05)}
+  h1{font-family:var(--display);font-weight:600;font-size:30px;line-height:1.15;margin:0;text-align:center}
+  h1 em{font-style:italic;color:var(--violet);font-weight:500}
+  .lead{font-size:16px;line-height:1.55;color:var(--ink-soft);text-align:center;margin:14px 0 0}
+  .trust{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+  .trust li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink-soft);line-height:1.45}
+  .trust li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--grad);margin-top:6px}
+  .btn{display:block;width:100%;border:0;border-radius:14px;padding:16px;font:600 16px var(--body);cursor:pointer;background:var(--cta);color:#fff;margin-top:22px;transition:transform .15s, box-shadow .15s}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(91,75,149,.3)}
+  .btn:disabled{opacity:.6;cursor:default;transform:none;box-shadow:none}
+  .btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line);margin-top:10px}
+  .progress{display:flex;gap:6px;margin-top:18px}
+  .progress span{flex:1;height:4px;border-radius:4px;background:var(--line)}
+  .progress span.on{background:var(--grad)}
+  .qnum{font-family:var(--mono);font-size:12px;color:var(--violet);letter-spacing:.08em}
+  h2{font-family:var(--display);font-weight:500;font-size:23px;line-height:1.3;margin:8px 0 0}
+  .hint{font-size:13.5px;color:var(--ink-faint);margin:8px 0 0;line-height:1.45}
+  .opts{display:grid;gap:10px;margin-top:20px}
+  .opt{width:100%;text-align:left;background:var(--tint);border:1.5px solid transparent;border-radius:14px;padding:15px 16px;font:500 16px/1.35 var(--body);color:var(--ink);cursor:pointer;transition:border-color .12s, background .12s}
+  .opt:hover{border-color:#CFC6E3}
+  .opt.sel{border-color:var(--violet);background:#F3ECF8}
+  .pre{font-family:var(--display);font-style:italic;font-size:17px;color:var(--violet);margin:10px 0 0;line-height:1.4}
+  .opt.rank{display:flex;align-items:center;gap:12px}
+  .opt .num{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px dashed #CFC6E3;display:flex;align-items:center;justify-content:center;font:700 14px var(--mono);color:#fff}
+  .opt.sel .num{border:0;background:var(--grad)}
+  .back{background:none;border:0;color:var(--ink-faint);font:500 14px var(--body);padding:12px 0 0;cursor:pointer}
+  .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .chip{background:var(--tint);border:1.5px solid transparent;border-radius:999px;padding:10px 14px;font:500 14.5px var(--body);color:var(--ink);cursor:pointer}
+  .chip.sel{border-color:var(--violet);background:#F3ECF8}
+  label.l{display:block;font-weight:600;font-size:15px;margin-top:20px}
+  input[type=email]{width:100%;margin-top:10px;padding:14px;border:1px solid var(--line);border-radius:12px;font:400 16px var(--body);background:var(--paper)}
+  input[type=email]:focus{outline:2px solid #CFC6E3;border-color:var(--violet)}
+  .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--ink-soft);margin-top:12px;cursor:pointer}
+  .check input{flex:none;width:18px;height:18px;margin-top:1px;accent-color:#74148B}
+  .small{font-size:12.5px;color:var(--ink-faint);line-height:1.5;margin-top:8px}
+  .err{color:#A2283E;font-size:14px;margin-top:12px;text-align:center}
+  .links{display:grid;gap:10px;margin-top:20px}
+  .links a{display:block;text-align:center;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:14px;color:var(--ink);font-weight:600;background:var(--paper)}
+  .links a span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-faint);margin-top:2px}
+  footer{margin-top:auto;padding-top:26px;text-align:center;font-size:12px;color:var(--ink-faint);line-height:1.6}
+  footer a{color:var(--ink-faint)}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="../logo-keenli.png" alt="KeenLi">
+    <span class="sep"></span>
+    <img src="../logo.png" alt="Label MHB">
+  </header>
+  <div class="eyebrow">KeenLi · Label MHB</div>
+  <div class="rule"></div>
+
+  <main id="app">
+    <section class="card" id="intro">
+      <h1>Le climat social,<br><em>ça compte pour vous ?</em></h1>
+      <p class="lead">Aidez-nous à montrer que la reconnaissance au travail a de l'importance. 4 questions, quelques taps.</p>
+      <ul class="trust">
+        <li>1 minute, 4 questions fermées.</li>
+        <li>Anonyme : ni nom, ni compte, ni e-mail demandé.</li>
+        <li>Une initiative de HEP Collective, éditeur de KeenLi et du Label MHB.</li>
+      </ul>
+      <button class="btn" id="start">Je réponds</button>
+    </section>
+
+    <section class="card" id="quiz" hidden>
+      <div class="qnum" id="qnum"></div>
+      <p class="pre" id="qpre" hidden></p>
+      <h2 id="qtitle"></h2>
+      <p class="hint" id="qhint" hidden></p>
+      <div class="opts" id="qopts"></div>
+      <button class="btn" id="rankok" hidden>Valider mon classement</button>
+      <div class="progress" id="progress"></div>
+      <button class="back" id="back">← Question précédente</button>
+    </section>
+
+    <section class="card" id="profil" hidden>
+      <div class="qnum">POUR FINIR (FACULTATIF)</div>
+      <h2>Un peu sur vous</h2>
+      <p class="hint">Uniquement pour les statistiques. Vous pouvez passer.</p>
+      <label class="l">Votre âge</label>
+      <div class="row" data-field="age">
+        <button class="chip" data-v="moins_18">Moins de 18</button>
+        <button class="chip" data-v="18_24">18-24</button>
+        <button class="chip" data-v="25_34">25-34</button>
+        <button class="chip" data-v="35_49">35-49</button>
+        <button class="chip" data-v="50_plus">50 et +</button>
+      </div>
+      <label class="l">Votre situation</label>
+      <div class="row" data-field="situation">
+        <button class="chip" data-v="salarie">Salarié·e</button>
+        <button class="chip" data-v="independant">Indépendant·e / dirigeant·e</button>
+        <button class="chip" data-v="etudiant">Étudiant·e</button>
+        <button class="chip" data-v="recherche">En recherche d'emploi</button>
+        <button class="chip" data-v="autre">Autre</button>
+      </div>
+      <label class="l" for="email">Recevoir les résultats de l'étude</label>
+      <input type="email" id="email" placeholder="votre@email.fr (facultatif)" autocomplete="email">
+      <label class="check"><input type="checkbox" id="matching"><span>Prévenez-moi aussi de l'ouverture de <b>Du cœur à l'ouvrage</b>, pour rencontrer des entreprises labellisées qui partagent mes valeurs.</span></label>
+      <p class="small">Votre e-mail est enregistré à part, sans aucun lien avec vos réponses, qui restent anonymes. Il ne sert qu'à ce que vous avez choisi ici.</p>
+      <button class="btn" id="send">Envoyer mes réponses</button>
+      <p class="err" id="err" hidden></p>
+      <button class="back" id="back2">← Question précédente</button>
+    </section>
+
+    <section class="card" id="merci" hidden>
+      <h1>Merci, <em>ça compte !</em></h1>
+      <p class="lead">Votre réponse aide à prouver que le climat social et la reconnaissance comptent vraiment. Partagez le lien autour de vous : plus on est nombreux, plus ça pèse.</p>
+      <button class="btn" id="share">Partager le questionnaire</button>
+      <div class="links">
+        <a href="https://keenli.app" target="_blank" rel="noopener">Créer mon profil KeenLi<span>La reconnaissance qui vous appartient</span></a>
+        <a href="https://myhumanbiz.com" target="_blank" rel="noopener">Découvrir le Label MHB<span>Le climat social, prouvé par les salariés</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    HEP Collective · KeenLi · Label MHB<br>
+    <a href="../mentions-legales.html">Mentions légales</a> · <a href="../politique-confidentialite.html">Confidentialité</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var API = 'https://iowdntarapcrcywixqkf.supabase.co/rest/v1/';
+  var KEY = 'sb_publishable_x_4yNNBV2_R6l1to_tQlRQ_uSr7rY1E'; // clé publique : ne permet que d'envoyer une réponse
+
+  var QUESTIONS = [
+    { key: 'avis_5_etoiles', title: 'Quand vous laissez un avis 5 étoiles, c\'est surtout pour…', hint: 'Sur Google, TripAdvisor ou ailleurs, pour un resto ou un commerce.',
+      opts: [['etablissement', 'L\'établissement'], ['les_deux_plutot_etablissement', 'Les deux, mais plutôt l\'établissement'], ['les_deux_plutot_personne', 'Les deux, mais plutôt la personne qui m\'a servi'], ['personne', 'La personne qui m\'a servi'], ['jamais_avis', 'Je ne laisse jamais d\'avis']] },
+    { key: 'choix_entre_deux', title: 'Entre deux adresses, l\'une prouve que ses salariés sont heureux et reconnus. Vous choisissez…',
+      opts: [['sans_hesiter', 'Celle-là, sans hésiter'], ['plutot', 'Plutôt celle-là'], ['indifferent', 'Ça m\'est égal']] },
+    { key: 'etre_reconnu', title: 'Et vous, être reconnu pour ce que vous êtes et ce que vous apportez au quotidien dans votre travail, plutôt que pour ce que vous rapportez à votre entreprise : ça vous plairait ?',
+      opts: [['oui_vraiment', 'Oui, vraiment'], ['plutot_oui', 'Plutôt oui'], ['egal', 'Ça m\'est égal'], ['non', 'Non']] },
+    { rank: true, pre: 'On passe une grande partie de notre vie au travail.', title: 'Dans quel ordre placez-vous ces critères pour choisir votre emploi ?', hint: 'Touchez-les du plus important au moins important.',
+      opts: [['rang_climat', 'Le climat social'], ['rang_salaire', 'Le salaire'], ['rang_avantages', 'Les avantages (mutuelle, tickets resto, primes…)'], ['rang_equilibre', 'L\'équilibre vie pro / vie perso']] }
+  ];
+
+  var answers = {}, profil = {}, i = 0;
+  var src = (new URLSearchParams(location.search).get('s') || '').toLowerCase();
+  if (!/^[a-z0-9_-]{1,40}$/.test(src)) src = null;
+
+  var $ = function (id) { return document.getElementById(id); };
+  function show(id) { ['intro', 'quiz', 'profil', 'merci'].forEach(function (s) { $(s).hidden = s !== id; }); window.scrollTo(0, 0); }
+
+  var order = [];
+  function next() { if (i < QUESTIONS.length - 1) { i++; render(); } else show('profil'); }
+
+  function render() {
+    var q = QUESTIONS[i];
+    $('qnum').textContent = 'QUESTION ' + (i + 1) + ' / ' + QUESTIONS.length;
+    $('qpre').hidden = !q.pre; $('qpre').textContent = q.pre || '';
+    $('qtitle').textContent = q.title;
+    $('qhint').hidden = !q.hint; $('qhint').textContent = q.hint || '';
+    var box = $('qopts'); box.innerHTML = '';
+    $('rankok').hidden = true;
+    if (q.rank) {
+      q.opts.forEach(function (o) {
+        var b = document.createElement('button');
+        var pos = order.indexOf(o[0]);
+        b.className = 'opt rank' + (pos >= 0 ? ' sel' : '');
+        b.innerHTML = '<span class="num">' + (pos >= 0 ? pos + 1 : '') + '</span>';
+        b.appendChild(document.createTextNode(o[1]));
+        b.onclick = function () {
+          var k = order.indexOf(o[0]);
+          if (k >= 0) order.splice(k, 1); else order.push(o[0]);
+          if (order.length === q.opts.length - 1) {
+            q.opts.forEach(function (x) { if (order.indexOf(x[0]) < 0) order.push(x[0]); });
+          }
+          render();
+        };
+        box.appendChild(b);
+      });
+      if (order.length === q.opts.length) {
+        $('rankok').hidden = false;
+        $('rankok').onclick = function () { order.forEach(function (key, k) { answers[key] = k + 1; }); next(); };
+      }
+    } else {
+      q.opts.forEach(function (o) {
+        var b = document.createElement('button');
+        b.className = 'opt' + (answers[q.key] === o[0] ? ' sel' : '');
+        b.textContent = o[1];
+        b.onclick = function () { answers[q.key] = o[0]; b.classList.add('sel'); setTimeout(next, 180); };
+        box.appendChild(b);
+      });
+    }
+    $('progress').innerHTML = QUESTIONS.map(function (_, k) { return '<span class="' + (k <= i ? 'on' : '') + '"></span>'; }).join('');
+    $('back').hidden = i === 0;
+  }
+
+  $('start').onclick = function () { i = 0; show('quiz'); render(); };
+  $('back').onclick = function () { if (i > 0) { i--; render(); } };
+  $('back2').onclick = function () { i = QUESTIONS.length - 1; show('quiz'); render(); };
+
+  document.querySelectorAll('.row').forEach(function (row) {
+    row.addEventListener('click', function (e) {
+      var c = e.target.closest('.chip'); if (!c) return;
+      var f = row.dataset.field, same = profil[f] === c.dataset.v;
+      row.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('sel'); });
+      if (same) { delete profil[f]; } else { profil[f] = c.dataset.v; c.classList.add('sel'); }
+    });
+  });
+
+  function post(table, body) {
+    return fetch(API + table, {
+      method: 'POST',
+      headers: { 'apikey': KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify(body)
+    });
+  }
+
+  $('send').onclick = function () {
+    var btn = $('send'), err = $('err');
+    var email = $('email').value.trim();
+    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'Cette adresse e-mail ne semble pas valide. Corrigez-la ou laissez le champ vide.'; err.hidden = false; return; }
+    err.hidden = true; btn.disabled = true; btn.textContent = 'Envoi…';
+    var row = Object.assign({}, answers, profil, src ? { source: src } : {});
+    post('sondage_reponses', row).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      // l'e-mail part séparément, sans lien avec les réponses ; un doublon est simplement ignoré
+      if (email) post('sondage_contacts', { email: email, veut_resultats: true, veut_matching: $('matching').checked }).catch(function () {});
+      show('merci');
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = 'Envoyer mes réponses';
+      err.textContent = 'L\'envoi n\'a pas fonctionné. Vérifiez votre connexion et réessayez.'; err.hidden = false;
+    });
+  };
+
+  $('share').onclick = function () {
+    var url = 'https://myhumanbiz.com/sondage/?s=partage';
+    var data = { title: 'Le climat social, ça compte pour vous ?', text: '4 questions, 1 minute, anonyme. Aidez à montrer que la reconnaissance au travail compte vraiment.', url: url };
+    if (navigator.share) { navigator.share(data).catch(function () {}); }
+    else if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function () { $('share').textContent = 'Lien copié !'; }); }
+  };
+})();
+</script>
+</body>
+</html>
