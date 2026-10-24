@@ -61,8 +61,8 @@
   .chip{background:var(--tint);border:1.5px solid transparent;border-radius:999px;padding:10px 14px;font:500 14.5px var(--body);color:var(--ink);cursor:pointer}
   .chip.sel{border-color:var(--violet);background:#F3ECF8}
   label.l{display:block;font-weight:600;font-size:15px;margin-top:20px}
-  input[type=email]{width:100%;margin-top:10px;padding:14px;border:1px solid var(--line);border-radius:12px;font:400 16px var(--body);background:var(--paper)}
-  input[type=email]:focus{outline:2px solid #CFC6E3;border-color:var(--violet)}
+  input[type=email],input[type=text]{width:100%;margin-top:10px;padding:14px;border:1px solid var(--line);border-radius:12px;font:400 16px var(--body);background:var(--paper)}
+  input[type=email]:focus,input[type=text]:focus{outline:2px solid #CFC6E3;border-color:var(--violet)}
   .check{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--ink-soft);margin-top:12px;cursor:pointer}
   .check input{flex:none;width:18px;height:18px;margin-top:1px;accent-color:#74148B}
   .small{font-size:12.5px;color:var(--ink-faint);line-height:1.5;margin-top:8px}
@@ -129,6 +129,9 @@
         <button class="chip" data-v="recherche">En recherche d'emploi</button>
         <button class="chip" data-v="autre">Autre</button>
       </div>
+      <label class="l" for="entreprise">Vous pensez à une entreprise qui mériterait le Label MHB ? Aidez-nous à la faire connaître</label>
+      <input type="text" id="entreprise" maxlength="120" placeholder="Ex. : Boulangerie Martin, Avignon (facultatif)" autocomplete="off">
+      <p class="small">Une entreprise où l'humain compte vraiment. Citez-la avec sa ville : uniquement du positif, jamais publié tel quel.</p>
       <label class="l" for="email">Recevoir les résultats de l'étude</label>
       <input type="email" id="email" placeholder="votre@email.fr (facultatif)" autocomplete="email">
       <label class="check"><input type="checkbox" id="matching"><span>Prévenez-moi aussi de l'ouverture de <b>Du cœur à l'ouvrage</b>, pour rencontrer des entreprises labellisées qui partagent mes valeurs.</span></label>
@@ -271,6 +274,8 @@
     if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'Cette adresse e-mail ne semble pas valide. Corrigez-la ou laissez le champ vide.'; err.hidden = false; return; }
     err.hidden = true; btn.disabled = true; btn.textContent = 'Envoi…';
     var row = Object.assign({}, answers, profil, src ? { source: src } : {});
+    var ent = $('entreprise').value.trim().slice(0, 120);
+    if (ent) row.entreprise_citee = ent;
     post('sondage_reponses', row).then(function (r) {
       if (!r.ok) throw new Error(r.status);
       // l'e-mail part séparément, sans lien avec les réponses ; un doublon est simplement ignoré
