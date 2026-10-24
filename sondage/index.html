@@ -104,6 +104,7 @@
       <p class="hint" id="qhint" hidden></p>
       <div class="opts" id="qopts"></div>
       <button class="btn" id="rankok" hidden>Valider mon classement</button>
+      <button class="back" id="rankreset" hidden>↺ Recommencer le classement</button>
       <div class="progress" id="progress"></div>
       <button class="back" id="back">← Question précédente</button>
     </section>
@@ -168,7 +169,7 @@
       opts: [['oui_vraiment', 'Oui, vraiment'], ['plutot_oui', 'Plutôt oui'], ['egal', 'Ça m\'est égal'], ['non', 'Non']] },
     { key: 'choix_employeur', title: 'Pour choisir votre futur employeur, le climat social de l\'entreprise, c\'est…',
       opts: [['decisif', 'Décisif'], ['un_peu', 'Ça compte un peu'], ['pas_vraiment', 'Pas vraiment important']] },
-    { rank: true, pre: 'On passe souvent plus de temps avec nos collègues qu\'avec nos proches.', title: 'Dans quel ordre placez-vous ces critères pour choisir votre emploi ?', hint: 'Touchez-les du plus important au moins important.',
+    { rank: true, pre: 'On passe souvent plus de temps avec nos collègues qu\'avec nos proches.', title: 'Dans quel ordre placez-vous ces critères pour choisir votre emploi ?', hint: 'Touchez-les du plus important au moins important. Retouchez un critère pour le retirer.',
       opts: [['rang_climat', 'Le climat social'], ['rang_salaire', 'Le salaire'], ['rang_avantages', 'Les avantages (mutuelle, tickets resto, primes…)'], ['rang_equilibre', 'L\'équilibre vie pro / vie perso']] }
   ];
 
@@ -190,6 +191,7 @@
     $('qhint').hidden = !q.hint; $('qhint').textContent = q.hint || '';
     var box = $('qopts'); box.innerHTML = '';
     $('rankok').hidden = true;
+    $('rankreset').hidden = true;
     if (q.rank) {
       q.opts.forEach(function (o) {
         var b = document.createElement('button');
@@ -199,14 +201,22 @@
         b.appendChild(document.createTextNode(o[1]));
         b.onclick = function () {
           var k = order.indexOf(o[0]);
-          if (k >= 0) order.splice(k, 1); else order.push(o[0]);
-          if (order.length === q.opts.length - 1) {
-            q.opts.forEach(function (x) { if (order.indexOf(x[0]) < 0) order.push(x[0]); });
+          if (k >= 0) {
+            // retaper un critère le décoche ; les suivants remontent d'un cran
+            order.splice(k, 1);
+          } else {
+            order.push(o[0]);
+            // le dernier critère se place tout seul, seulement quand on en ajoute un
+            if (order.length === q.opts.length - 1) {
+              q.opts.forEach(function (x) { if (order.indexOf(x[0]) < 0) order.push(x[0]); });
+            }
           }
           render();
         };
         box.appendChild(b);
       });
+      $('rankreset').hidden = order.length === 0;
+      $('rankreset').onclick = function () { order = []; render(); };
       if (order.length === q.opts.length) {
         $('rankok').hidden = false;
         $('rankok').onclick = function () { order.forEach(function (key, k) { answers[key] = k + 1; }); next(); };
