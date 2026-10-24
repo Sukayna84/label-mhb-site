@@ -162,7 +162,7 @@
 
   var QUESTIONS = [
     { key: 'avis_5_etoiles', title: 'Quand vous laissez un avis 5 étoiles, c\'est surtout pour…', hint: 'Sur Google, TripAdvisor ou ailleurs, pour un resto ou un commerce.',
-      opts: [['etablissement', 'L\'établissement'], ['les_deux_plutot_etablissement', 'Les deux, mais plutôt l\'établissement'], ['les_deux_plutot_personne', 'Les deux, mais plutôt la personne qui m\'a servi'], ['personne', 'La personne qui m\'a servi'], ['jamais_avis', 'Je ne laisse jamais d\'avis']] },
+      opts: [['personne', 'La personne qui m\'a servi'], ['les_deux_plutot_personne', 'Les deux, mais plutôt la personne qui m\'a servi'], ['les_deux_plutot_etablissement', 'Les deux, mais plutôt l\'établissement'], ['etablissement', 'L\'établissement'], ['jamais_avis', 'Je ne laisse jamais d\'avis']] },
     { key: 'choix_entre_deux', title: 'Entre deux adresses, l\'une prouve que ses salariés sont heureux et reconnus. Vous choisissez…',
       opts: [['sans_hesiter', 'Celle-là, sans hésiter'], ['plutot', 'Plutôt celle-là'], ['indifferent', 'Ça m\'est égal']] },
     { key: 'etre_reconnu', title: 'Être reconnu pour ce que vous apportez humainement, pas pour ce que vous rapportez : ça vous plairait ?',
@@ -267,6 +267,7 @@
   $('send').onclick = function () {
     var btn = $('send'), err = $('err');
     var email = $('email').value.trim();
+    if (!email && $('matching').checked) { err.textContent = 'Pour être prévenu·e de l\'ouverture, indiquez votre e-mail. Sinon, décochez la case.'; err.hidden = false; $('email').focus(); return; }
     if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'Cette adresse e-mail ne semble pas valide. Corrigez-la ou laissez le champ vide.'; err.hidden = false; return; }
     err.hidden = true; btn.disabled = true; btn.textContent = 'Envoi…';
     var row = Object.assign({}, answers, profil, src ? { source: src } : {});
@@ -281,6 +282,14 @@
       err.textContent = 'L\'envoi n\'a pas fonctionné. Vérifiez votre connexion et réessayez.'; err.hidden = false;
     });
   };
+
+  // garde-fou : cocher la case sans e-mail renvoie vers le champ e-mail
+  $('matching').addEventListener('change', function () {
+    if (this.checked && !$('email').value.trim()) {
+      $('err').textContent = 'Indiquez votre e-mail juste au-dessus pour être prévenu·e.';
+      $('err').hidden = false; $('email').focus();
+    } else { $('err').hidden = true; }
+  });
 
   $('share').onclick = function () {
     var url = 'https://myhumanbiz.com/sondage/?s=partage';
