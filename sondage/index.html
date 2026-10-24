@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Votre avis en 1 minute · KeenLi & Label MHB</title>
-<meta name="description" content="4 questions, 1 minute, réponses anonymes. Aidez-nous à montrer que le climat social et la reconnaissance au travail comptent vraiment.">
+<meta name="description" content="5 questions, 1 minute, réponses anonymes. Aidez-nous à montrer que le climat social et la reconnaissance au travail comptent vraiment.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://myhumanbiz.com/sondage/">
 <meta property="og:title" content="Votre avis en 1 minute : le climat social, ça compte ?">
-<meta property="og:description" content="4 questions, réponses anonymes, sans compte. Une initiative KeenLi & Label MHB.">
+<meta property="og:description" content="5 questions, réponses anonymes, sans compte. Une initiative KeenLi & Label MHB.">
 <meta property="og:image" content="https://myhumanbiz.com/logo.png">
 <meta name="theme-color" content="#74148B">
 <link rel="icon" href="../logo.png">
@@ -88,9 +88,9 @@
   <main id="app">
     <section class="card" id="intro">
       <h1>Le climat social,<br><em>ça compte pour vous ?</em></h1>
-      <p class="lead">Aidez-nous à montrer que la reconnaissance au travail a de l'importance. 4 questions, quelques taps.</p>
+      <p class="lead">Aidez-nous à montrer que la reconnaissance au travail a de l'importance. 5 questions, quelques taps.</p>
       <ul class="trust">
-        <li>1 minute, 4 questions fermées.</li>
+        <li>1 minute, 5 questions fermées.</li>
         <li>Anonyme : ni nom, ni compte, ni e-mail demandé.</li>
         <li>Une initiative de HEP Collective, éditeur de KeenLi et du Label MHB.</li>
       </ul>
@@ -166,6 +166,8 @@
       opts: [['sans_hesiter', 'Celle-là, sans hésiter'], ['plutot', 'Plutôt celle-là'], ['indifferent', 'Ça m\'est égal']] },
     { key: 'etre_reconnu', title: 'Et vous, être reconnu pour ce que vous êtes et ce que vous apportez au quotidien dans votre travail, plutôt que pour ce que vous rapportez à votre entreprise : ça vous plairait ?',
       opts: [['oui_vraiment', 'Oui, vraiment'], ['plutot_oui', 'Plutôt oui'], ['egal', 'Ça m\'est égal'], ['non', 'Non']] },
+    { key: 'choix_employeur', title: 'Pour choisir votre futur employeur, le climat social de l\'entreprise, c\'est…',
+      opts: [['decisif', 'Décisif'], ['un_peu', 'Ça compte un peu'], ['pas_vraiment', 'Pas vraiment important']] },
     { rank: true, pre: 'On passe souvent plus de temps avec nos collègues qu\'avec nos proches.', title: 'Dans quel ordre placez-vous ces critères pour choisir votre emploi ?', hint: 'Touchez-les du plus important au moins important.',
       opts: [['rang_climat', 'Le climat social'], ['rang_salaire', 'Le salaire'], ['rang_avantages', 'Les avantages (mutuelle, tickets resto, primes…)'], ['rang_equilibre', 'L\'équilibre vie pro / vie perso']] }
   ];
@@ -272,7 +274,7 @@
 
   $('share').onclick = function () {
     var url = 'https://myhumanbiz.com/sondage/?s=partage';
-    var data = { title: 'Le climat social, ça compte pour vous ?', text: '4 questions, 1 minute, anonyme. Aidez à montrer que la reconnaissance au travail compte vraiment.', url: url };
+    var data = { title: 'Le climat social, ça compte pour vous ?', text: '5 questions, 1 minute, anonyme. Aidez à montrer que la reconnaissance au travail compte vraiment.', url: url };
     if (navigator.share) { navigator.share(data).catch(function () {}); }
     else if (navigator.clipboard) { navigator.clipboard.writeText(url).then(function () { $('share').textContent = 'Lien copié !'; }); }
   };
