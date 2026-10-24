@@ -138,8 +138,8 @@
     </section>
 
     <section class="card" id="merci" hidden>
-      <h1>Merci, <em>ça compte !</em></h1>
-      <p class="lead">Votre réponse aide à prouver que le climat social et la reconnaissance comptent vraiment. Partagez le lien autour de vous : plus on est nombreux, plus ça pèse.</p>
+      <h1 id="merciTitre">Merci, <em>ça compte !</em></h1>
+      <p class="lead" id="merciTexte">Votre réponse aide à prouver que le climat social et la reconnaissance comptent vraiment. Partagez le lien autour de vous : plus on est nombreux, plus ça pèse.</p>
       <button class="btn" id="share">Partager le questionnaire</button>
       <div class="links">
         <a href="https://keenli.app" target="_blank" rel="noopener">Créer mon profil KeenLi<span>La reconnaissance qui vous appartient</span></a>
@@ -166,7 +166,7 @@
       opts: [['sans_hesiter', 'Celle-là, sans hésiter'], ['plutot', 'Plutôt celle-là'], ['indifferent', 'Ça m\'est égal']] },
     { key: 'etre_reconnu', title: 'Et vous, être reconnu pour ce que vous êtes et ce que vous apportez au quotidien dans votre travail, plutôt que pour ce que vous rapportez à votre entreprise : ça vous plairait ?',
       opts: [['oui_vraiment', 'Oui, vraiment'], ['plutot_oui', 'Plutôt oui'], ['egal', 'Ça m\'est égal'], ['non', 'Non']] },
-    { rank: true, pre: 'On passe une grande partie de notre vie au travail.', title: 'Dans quel ordre placez-vous ces critères pour choisir votre emploi ?', hint: 'Touchez-les du plus important au moins important.',
+    { rank: true, pre: 'On passe souvent plus de temps avec nos collègues qu\'avec nos proches.', title: 'Dans quel ordre placez-vous ces critères pour choisir votre emploi ?', hint: 'Touchez-les du plus important au moins important.',
       opts: [['rang_climat', 'Le climat social'], ['rang_salaire', 'Le salaire'], ['rang_avantages', 'Les avantages (mutuelle, tickets resto, primes…)'], ['rang_equilibre', 'L\'équilibre vie pro / vie perso']] }
   ];
 
@@ -222,6 +222,15 @@
     $('back').hidden = i === 0;
   }
 
+  // une réponse par appareil : le navigateur se souvient qu'on a déjà répondu
+  var dejaRepondu = false;
+  try { dejaRepondu = localStorage.getItem('mhb_sondage_repondu') === '1'; } catch (e) {}
+  if (dejaRepondu) {
+    $('merciTitre').innerHTML = 'Vous avez déjà répondu, <em>merci&nbsp;!</em>';
+    $('merciTexte').textContent = 'Votre réponse est bien enregistrée. Pour que l\'étude ait du poids, partagez le questionnaire autour de vous.';
+    show('merci');
+  }
+
   $('start').onclick = function () { i = 0; show('quiz'); render(); };
   $('back').onclick = function () { if (i > 0) { i--; render(); } };
   $('back2').onclick = function () { i = QUESTIONS.length - 1; show('quiz'); render(); };
@@ -253,6 +262,7 @@
       if (!r.ok) throw new Error(r.status);
       // l'e-mail part séparément, sans lien avec les réponses ; un doublon est simplement ignoré
       if (email) post('sondage_contacts', { email: email, veut_resultats: true, veut_matching: $('matching').checked }).catch(function () {});
+      try { localStorage.setItem('mhb_sondage_repondu', '1'); } catch (e) {}
       show('merci');
     }).catch(function () {
       btn.disabled = false; btn.textContent = 'Envoyer mes réponses';
